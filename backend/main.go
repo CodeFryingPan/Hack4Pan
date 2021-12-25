@@ -1,12 +1,23 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
+	"time"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
+// "go.mongodb.org/mongo-driver/bson"
+// "go.mongodb.org/mongo-driver/mongo"
+// "go.mongodb.org/mongo-driver/mongo/options"
+// "go.mongodb.org/mongo-driver/mongo/readpref"
 
 type User struct {
 	Pseudoname  string `json:"pseudoname"`
@@ -58,8 +69,41 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 	json.Unmarshal(reqBody, &user)
 
 	Users = append(Users, user)
+
+	value := os.Getenv("ATLAS_URI")
+	clientOptions := options.Client().ApplyURI(value)
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println("CONNECTION INITIALIZED")
+
+	err = client.Ping(context.TODO(), nil)
+
+	if err != nil {
+		log.Fatal("error ", err)
+	}
+
+	collection := client.Database("Panathon").Collection("Users")
+
+	fmt.Println("Collection Found")
+
+	ctx, _ := context.WithTimeout(context.Background(), 100*time.Second)
+	insertResult, err := collection.InsertOne(ctx, user)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
+
+	err = client.Disconnect(context.TODO())
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connection to MongoDB closed.")
+
 	json.NewEncoder(w).Encode(user)
-	fmt.Println(Users)
 }
 
 func handleRequest() {
@@ -76,7 +120,23 @@ func setupResponse(w *http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	fmt.Println(Users)
+	// fmt.Println(Users)
+	// value := os.Getenv("ATLAS_URI")
+
+	// client, err := mongo.NewClient(options.Client().ApplyURI(value))
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	// err = client.Connect(ctx)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	fmt.Print("DB connection setup to Atlas")
 	handleRequest()
 	fmt.Print("Server running on 8081")
+
+	// defer client.Disconnect(ctx)
+	// mt.Print("Disconnected Database.")
 }
