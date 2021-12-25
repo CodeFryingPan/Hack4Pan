@@ -1,0 +1,57 @@
+.container {
+    height: 100vh;
+    padding: 0 2rem;
+    background-color: #6b2d5c;
+    background-image: linear-gradient(316deg, #6b2d5c 0%, #e0e5e5 74%);
+}
+
+.header {
+    display: flex;
+    flex:1; 
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.title {
+    flex: 1;
+}
+
+.backbutton {
+    position: absolute;
+    left: 2rem;
+    top: 3rem;
+    align-content: left;
+    justify-content: left;
+    margin: auto;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: inline-block;
+    text-align: center;
+    min-width: 20rem;
+}
+
+.label {
+    display: flex;
+    justify-content: left;
+    margin: 2rem 0;
+}
+
+.signup {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem 0;
+    font: 100px;
+}
+
