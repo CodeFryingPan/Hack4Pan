@@ -34,10 +34,10 @@ export default function SelectionPage() {
     // IS IN THE DATABASE RIGHT?
     // 
 
-    if (session) {
-        console.log(session)
+    // if (session) {
+    //     console.log(session)
         
-    }
+    // }
     
     return (
         <div className={styles.container}>
