@@ -1,0 +1,26 @@
+.container {
+  position: absolute;  
+  top: 50%; 
+  right: 50%;  
+  transform: translate(50%,-50%); 
+}
+
+.join {
+
+}
+
+.create {
+  margin-bottom: 1rem;
+}
+
+.joincontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.button {
+  margin-top: 1rem;
+}

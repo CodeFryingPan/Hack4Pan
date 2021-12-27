@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image'
 import Carousel from 'react-material-ui-carousel';
-import { Paper, Button } from '@material-ui/core';
-import styles from '../styles/Home.module.css'
+import { Paper, Button } from '@mui/material';
+import styles from '../../styles/Profiles.module.css'
 
 export default function Profiles() {
     const items = [
