@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import DiscordProvider from "next-auth/providers/discord"
+import clientPromise from '../../../src/util/mongodb'
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -13,15 +14,30 @@ export default NextAuth({
   ],
   callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-            // 
-            // IF USER EXISTS:
-            // CONTINUE
-            // ELSE: ADD USER HERE
+            const client = await clientPromise
+            await client.connect()
 
-            // const userExists = await client.db("Panathon").collection("Users").findOne({"uid": user.id});
-            
+            console.log(profile);
 
-            return true
+            try {
+                const usersCollection = await client.db("Panathon").collection("Users")
+                const userExists = await usersCollection.findOne({"uid": user.id})
+                
+                if (!userExists) {                  
+                    const userDoc = {
+                        uid: profile.id,
+                        tag: profile.username + "#" + profile.discriminator,
+                        project: null,
+                        image: profile.image_url
+                    }   
+                    const result = await usersCollection.insertOne(userDoc)
+                    console.log(`A document was inserted with the _id: ${result.insertedId}`);
+                }
+            } catch (e) {
+                console.log(e);
+            } finally {
+                return true
+            }
         },
         async redirect({ url, baseUrl }) {
             return baseUrl
@@ -30,6 +46,7 @@ export default NextAuth({
             if (session?.user) {
                 session.user.id = token.uid;
             }
+            
             return session;
         },
         async jwt({ token, user, account, profile, isNewUser }) {

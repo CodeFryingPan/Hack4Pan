@@ -20,7 +20,7 @@ import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { withStyles } from '@mui/styles'
 import { grey } from "@mui/material/colors";
 
-import { useSession, signIn, signOut, getSession } from "next-auth/react"
+import { useSession, signIn, signOut, getSession, getProviders } from "next-auth/react"
 
 export async function getServerSideProps(context) {
   const session = await getSession(context)
@@ -28,18 +28,21 @@ export async function getServerSideProps(context) {
   if (session) {
     return {
       redirect: {
-        destination: '/team/selection',
+        destination: '/user/home',
         permanent: false,
       },
     }
   }
 
+  const providers = await getProviders();
+
   return {
-    props: { session }
+    props: { providers }
   }
 }
 
-export default function Home() {
+export default function Home({ providers }) {
+
   const WhiteTextTypography = withStyles({
     root: {
       color: "#FFFFFF"
@@ -56,13 +59,30 @@ export default function Home() {
       }
     }
   });
+
+  // Automatically makes the discord auth instead of going to signin!
+  const renderAuthButton = (providers) => {
+    if ("discord" in providers) {
+        return (   
+        <Fab sx={{margin: 2, width: 150, height: 150}} onClick={() => signIn(providers["discord"].id)}>
+            <Image src={DiscordLogo} width={150} height={150}/>
+        </Fab>
+      )
+    } else {
+      return (
+        <Fab sx={{margin: 2, width: 150, height: 150}} onClick={() => signIn()}>
+          <Image src={DiscordLogo} width={150} height={150}/>
+        </Fab>
+      )
+    }
+  }
   
   return (
     <div className={styles.container}>
       <ThemeProvider theme={theme}>
         <Head>
           <title>Le Troll</title>
-          <meta name="description" content="Frying4Good hackathon" />
+          <meta name="description" content="Panathon hackathon" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -79,9 +99,9 @@ export default function Home() {
 
 
           <div className={styles.authentication}>
-               <Fab sx={{margin: 2, width: 150, height: 150}} onClick={() => signIn()}>
-                  <Image src={DiscordLogo} width={150} height={150}/>
-              </Fab>
+            {
+              renderAuthButton(providers)
+            }
             <WhiteTextTypography variant="body" component="div">
               Apply with Discord!
             </WhiteTextTypography>
@@ -95,7 +115,7 @@ export default function Home() {
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <WhiteTextTypography >What is Frying4Pan?</WhiteTextTypography>
+                <WhiteTextTypography >What is Panathon?</WhiteTextTypography>
               </AccordionSummary>
               <AccordionDetails>
                 <WhiteTextTypography>

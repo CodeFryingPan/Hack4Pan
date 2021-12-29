@@ -1,8 +1,9 @@
 .container {
-  position: absolute;  
-  top: 50%; 
-  right: 50%;  
-  transform: translate(50%,-50%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
 
 .join {
@@ -23,4 +24,20 @@
 
 .button {
   margin-top: 1rem;
+  flex: 1;
+}
+
+.table {
+  /* min-height: 100vh; */
+
+  width:85%;
+  margin: 2rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  filter: drop-shadow(0 0 0.2rem black); 
+  overflow: hidden;
 }

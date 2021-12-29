@@ -1,0 +1,10 @@
+.container {
+    min-width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;     
+}
+
+.button {
+    margin: 2rem;
+}
