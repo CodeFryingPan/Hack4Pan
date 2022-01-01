@@ -1,0 +1,25 @@
+.container {
+    height: 100vh;
+    margin: 2rem 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+    background-color: #0F0E0E; 
+}
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        margin: 2rem;  
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        margin: 3rem;  
+    }
+}
+
+.signOutButton{
+    margin: 1rem;
+}

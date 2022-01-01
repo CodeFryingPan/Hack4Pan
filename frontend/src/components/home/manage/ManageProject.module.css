@@ -1,0 +1,31 @@
+.container {
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.projectActionButton {
+    margin: 2rem 0 0 0;
+}
+
+.dialogContainer {
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    background-color: #0F0E0E;
+}
+
+.warningText {
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+    
+    .warningText {
+        margin-top: 2rem;
+    }
+  
+  }
+ 

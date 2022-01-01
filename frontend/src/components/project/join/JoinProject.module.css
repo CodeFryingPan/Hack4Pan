@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.backButton {
+  text-decoration: underline;
+  padding: 1rem;
+}
+
+.buttonContainer {
+  min-width: 10rem;
+  max-width: 16rem;
+  margin-top: 1rem;
+}
+
+.title {
+/* word-break: break-all; */
+font-size: 20px;
+white-space: normal;
+}
+
+.textfieldContainer {
+margin: 2rem 0;
+display: inline-block;
+font-family: "Press Start 2P", cursive;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.textfield {
+ margin: 1rem;
+}
+
+  
+@media screen and (min-width: 576px) {
+  .title {
+    font-size: 30px;
+    white-space: normal;
+  }
+
+  .textfieldContainer {
+    margin: 2rem 0;
+  }
+
+  .back {
+    left: 1.5rem;
+    top: 1.5rem;
+  }
+
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    white-space: normal;
+  }
+
+  .textfieldContainer {
+    display: flex;
+    margin: 4rem 0;
+  }
+
+  .back {
+    left: 3rem;
+    top: 3rem;
+  }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    /* word-break: break-all; */
+    white-space: normal;
+  }
+
+  .back {
+    left: 4rem;
+    top: 4rem;
+  }
+}

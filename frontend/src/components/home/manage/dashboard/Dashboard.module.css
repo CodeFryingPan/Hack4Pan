@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: #0F0E0E;
+    border-style: solid;
+    border-color: white;    
+    border-width: 3px;
+  }
+  
+  .button {
+    margin-top: 1rem;
+    flex: 0;
+  }
+
+  .tableContainer {
+
+    width: 100%;
+    margin: 2rem 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    filter: drop-shadow(0 0 0.2rem black); 
+   
+  }
+
+ /* Hide Horizontal Scroll Bar */
+
+.tableContainer::-webkit-scrollbar {
+  display:none;
+}
+
+.tableContainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+}

@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0F0E0E;
+    
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    border-bottom-width: 0px;
+}
+
+.description {
+    padding: 1rem;
+}
+
+.link {
+    padding: 1rem;
+}
+
+.descriptionTextField{
+    display: flex;
+    margin: 2rem;
+}
+
+.linkTextField {
+    display: flex;
+    margin: 1rem 2rem;
+}
+
+.buttonContainer {
+    text-align: center;
+}
+
+.button {
+    text-align: center;
+    padding: 2rem;
+    text-decoration: underline;
+}

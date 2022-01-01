@@ -1,12 +1,8 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import styles from "../../styles/SelectionPage.module.css";
-import Button from '@mui/material/Button';
-import { useState } from 'react';
-import axios from 'axios';
+import Head from "next/head";
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
-import Router from 'next/router';
+import clientPromise from "../../src/util/mongodb";
+
+import JoinProject from '../../src/components/project/join';
 
 export async function getServerSideProps(context) {
     const session = await getSession(context)
@@ -20,59 +16,33 @@ export async function getServerSideProps(context) {
       }
     }  
 
-    console.log(session)
+    const client = await clientPromise
+    await client.connect()
 
-    return { props: {user: session.user}}
+    const usersCollection = await client.db("Panathon").collection("Users")
+    const user = await usersCollection.findOne({"uid": session.user.id})
+
+    if (user.project) {
+      return {
+          redirect: {
+            destination: '/user/home',
+            permanent: false,
+          },
+      }
+    } 
+
+    return { props: { user: JSON.parse(JSON.stringify(user))}}
 }
 
-export default function JoinTeam({ user }) {
-    const [projectName, setProjectName] = useState("");
-    const [password, setPassword] = useState("");
-
-    const handleJoin = async (user) => {
-        console.log(user);
-
-        const userid = user.id
-        
-        let body = {
-            projectName: projectName,
-            password: password
-        }
-
-        await axios.put(`http://localhost:3000/api/project/${userid}`, body)
-        .then(function (response) {
-            console.log(response);
-            Router.push("/user/home");
-        })
-        .catch(function (error) {
-            console.log(error);
-        }); 
-    }
-
-    return(
-        <div className={styles.joincontainer}>
-            <h1>Join a Project!</h1>
-            <TextField
-                required
-                id="outlined-required"
-                label="Project Name"
-                className={styles.create}
-                onChange={e => setProjectName(e.target.value)}
-            />
-            <TextField
-                required
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                autoComplete="current-password"
-                onChange={e => setPassword(e.target.value)}
-            />
-            <Button 
-                variant="contained" 
-                className={styles.button}
-                onClick={() => handleJoin(user)}>
-                Join
-            </Button>
+export default function JoinProjectPage({ user }) {
+    return (
+        <div>
+            <Head>
+                <title> Hack4Pan | Join Project </title>
+                <meta name="description" content="Hack4Pan hackathon" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <JoinProject user={user}/>
         </div>
     )
 }

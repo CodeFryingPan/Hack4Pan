@@ -1,12 +1,8 @@
-import Selection from "../../src/components/selection.js";
-import Project from "../../src/components/project.js";
+import Head from "next/head";
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
-import { Typography } from "@mui/material";
 import clientPromise from '../../src/util/mongodb';
-import Button from '@mui/material/Button';
-import styles from "../../styles/UserHome.module.css"
-import axios from "axios";
-import Router from "next/router";
+
+import Home from "../../src/components/home";
 
 export async function getServerSideProps(context) {
 
@@ -21,6 +17,7 @@ export async function getServerSideProps(context) {
       }
     }  
 
+    // TODO: CHANGE THESE TO API AFTER SO WE DONT DO THESE DATABASE OPERATIONS HERE
     const client = await clientPromise
     await client.connect()
 
@@ -44,17 +41,16 @@ export async function getServerSideProps(context) {
 }
 
 
-export default function Home({ user, members, project }) {
-    const { data: session } = useSession()
-    
-    return(
-        <div className={styles.container}>
-            {
-            user.project ?
-            (<Project user={user} project={project} members={members}></Project>)
-            : <Selection></Selection>
-            }
-            <Button className={styles.button} color="error" variant="outlined" onClick={() => signOut()}> Sign Out </Button>
-        </div>   
+export default function UserHomePage({ user, members, project }) {
+    return (
+      <div>
+         <Head>
+          <title> Hack4Pan | {user.tag} </title>
+          <meta name="description" content="Hack4Pan hackathon" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Home user={user} members={members} project={project} />
+      </div>
+      
     )
 }

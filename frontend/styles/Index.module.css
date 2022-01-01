@@ -1,0 +1,163 @@
+.container {
+    padding: 0 2rem;
+    margin: 2rem;
+    background-color: #0F0E0E;
+  }
+  
+  .main {
+    min-height: 100vh;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title a:hover,
+  .title a:focus,
+  .title a:active {
+    text-decoration: underline;
+  }
+  
+  .title,
+  .description {
+    text-align: center;
+  }
+  
+  .description {
+    margin: 4rem 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
+  
+  /* AUTHENTICATION BUTTON */
+  
+  .authentication {
+    display: inline-block;
+    margin: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* GRID WE DONT USE */
+  
+  
+  .logo {
+    height: 1em;
+    margin-left: 0.5rem;
+  }
+  
+  /* ACCORDION  */
+  
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+  }
+  
+  .accordionDescription {
+    padding: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .1);
+  }
+  
+  .accordions {
+    display: flex;
+    margin: 2rem 0;
+    max-width: 1000px;
+    border-style: solid;
+    border-color: white;
+    flex-direction: column;
+  }
+  
+  .accordionSeparator {
+    border-color: white;
+    width: 100%;
+    border-style: dashed;
+  }
+  
+  .accordionTitle {
+    text-align: center !important;
+    justify-content: center;
+  }
+  
+  .MuiAccordionSummary-content {
+    justify-content: center;
+  }
+  
+  .accordionExpanded {
+    margin: 0 auto;
+  }
+  
+  /* CSS */
+  
+  
+  .collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+  
+  
+  .footer {
+    display: flex;
+    flex: 1;
+    padding: 2rem 0;
+    border-top: 1px solid black;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .cursor { cursor: pointer; }
+  
+  .blink {
+    -webkit-animation: 1s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+    animation: 1s linear infinite condemned_blink_effect;
+  }
+  
+  /* for Safari 4.0 - 8.0 */
+  @-webkit-keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+  
+  @keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }

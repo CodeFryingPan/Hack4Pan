@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.card {
+    display:flex;
+    max-width: 500px;
+    width: 95%;
+    margin: 1rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: beige;
+    padding: 2rem;
+}
+
+.create {
+    border-radius: 1rem; 
+    flex: 1;
+    height: auto;
+    background-color: #0F0E0E;
+}
+
+
+.join {
+    border-radius: 1rem; 
+    flex: 1;
+    height: auto;
+    background-color: #0F0E0E;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+@media screen and (min-width: 576px) {
+    .container {
+        height: 90%
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        height: 90%
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        height: 80%
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        height: 80%
+    }
+}

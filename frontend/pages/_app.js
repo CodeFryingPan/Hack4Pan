@@ -1,17 +1,24 @@
 import '../styles/globals.css'
 import { SessionProvider } from "next-auth/react"
+import createEmotionCache from '../src/util/createEmotionCache'
+import { CacheProvider } from '@emotion/react';
+
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
 // import App from 'next/app'
 
 // This is used to create pages for us
 //  https://nextjs.org/docs/advanced-features/custom-app
 
-function MyApp({ Component, pageProps: { session, ...pageProps }, }) {
+function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps }, }) {
 
   return (
-    <SessionProvider session={session}>
-          <Component {...pageProps} />
-    </SessionProvider>
+      // <CacheProvider value={emotionCache}>
+        <SessionProvider session={session}>
+            <Component {...pageProps} />
+        </SessionProvider>
+      // </CacheProvider>
   )
 }
 

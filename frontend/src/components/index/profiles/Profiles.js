@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image'
 import Carousel from 'react-material-ui-carousel';
 import { Paper, Button } from '@mui/material';
-import styles from '../../styles/Profiles.module.css'
+
+import styles from './Profiles.module.css'
 
 export default function Profiles() {
     const items = [
@@ -32,7 +33,7 @@ export default function Profiles() {
 const Item = ({name, link}) => {
     return (
         <div className={styles.imageContainer}>
-            <Image src={link} width={410} height={666}/>
+            <Image src={link} width={300} height={500}/>
         </div>
     );
 };
