@@ -12,9 +12,8 @@ import dynamic from 'next/dynamic'
 
 import styles from "./CreateProject.module.css";
 
-
-const RetroButton = dynamic(() => import('../../shared/button/RetroButton'), { ssr: false })
 import RetroTextField from '../../shared/textfield/RetroTextField';
+import { border } from '@mui/system';
 
 export default function CreateProject( {user} ) {
     
@@ -78,7 +77,7 @@ export default function CreateProject( {user} ) {
                     Project Name: 
                 </WhiteTextTypography>
                 <RetroTextField
-                placeholder="___________________"
+                placeholder="_______________________"
                 required
                 InputProps={{
                     classes: {
@@ -92,21 +91,28 @@ export default function CreateProject( {user} ) {
                 />
             </div>
             <div className={styles.buttonContainer}>
-            <RetroButton 
-             sx={{
-                '&& .MuiTouchRipple-rippleVisible': {
-                  animationDuration: '50ms',
-                }
-            }}
-             onClick={() => {
-                if (projectNameError) {
-                    alert("Your project name should only contain letters or numbers.");
-                } else {
-                    handleCreate(user.uid, projectName);
-                }
-            }}>
-                CREATE 
-            </RetroButton>
+                <Button 
+                variant="standard"
+                className={styles.createButton}
+                sx={{
+                    '&& .MuiTouchRipple-rippleVisible': {
+                        animationDuration: '50ms',   
+                    },
+                    padding: "1rem 2rem",
+                    border: "2px solid",
+                    borderColor: "white"
+                }}
+                onClick={() => {
+                    if (projectNameError) {
+                        alert("Your project name should only contain letters or numbers.");
+                    } else {
+                        handleCreate(user.uid, projectName);
+                    }
+                }}>
+                    <WhiteTextTypography>
+                        CREATE 
+                    </WhiteTextTypography>
+                </Button>
             </div>
         </div>
     )

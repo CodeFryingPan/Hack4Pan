@@ -109,6 +109,7 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 func handleRequest() {
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/user", handleUser)
+	http.HandleFunc("/authenticate", authenticate())
 	log.Fatal(http.ListenAndServe(":8081", nil))
 	// THis is where it is started
 }
@@ -117,6 +118,24 @@ func setupResponse(w *http.ResponseWriter, req *http.Request) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 	(*w).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	(*w).Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+}
+
+func authenticate() {
+	applicationID := os.Getenv("APPLICATION_ID")
+	CLIENT_ID := os.Getenv("CLIENT_ID")
+	publicKey := os.Getenv("PUBLIC_KEY")
+	clientSecret := os.Getenv("CLIENT_SECRET")
+	ENDPOINT := "https://discord.com/api/oauth2/authorize"
+	SCOPE := "email"
+
+	api := ENDPOINT + "?" + "response_type=code" + "&client_id=" + CLIENT_ID + "&scope=" + SCOPE + "+"
+	test := "https://discord.com/api/oauth2/authorize?response_type=code&client_id=" + CLIENT_ID + "&scope=" + SCOPE + "&redirect_uri=http://localhost:3000/&prompt=none"
+	// data := {
+	// 	"clientId": clientID,
+	// 	"clientSecret": clientSecret,
+	// 	"grantType": "authorization_code",
+	// 	"redirect_uri": "localhost:3000"
+	// }
 }
 
 func main() {

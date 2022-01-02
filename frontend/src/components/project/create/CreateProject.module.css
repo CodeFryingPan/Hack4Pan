@@ -25,6 +25,10 @@
   margin-top: 1rem;
 }
 
+.createButton {
+  text-decoration: underline;
+}
+
 .title {
   /* word-break: break-all; */
   font-size: 20px;

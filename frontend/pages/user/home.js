@@ -29,8 +29,6 @@ export async function getServerSideProps(context) {
     const members = await usersCollection.find({"project": user.project}).toArray();
     const project = await projectsCollection.findOne({"_id": user.project})
 
-    console.log("TEAM MEMBERS", members);
-
     return {
         props: { 
             user: JSON.parse(JSON.stringify(user)), 

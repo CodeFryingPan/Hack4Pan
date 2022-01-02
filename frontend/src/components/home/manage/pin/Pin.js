@@ -40,9 +40,7 @@ const Pin = ({ project }) => {
                 }
                 {
                     showPin && 
-                    <div className={styles.pin} onClick={() => setShowPin(!showPin)}> 
-                        {project.pin} 
-                    </div>
+                    <div className={styles.pin} onClick={() => setShowPin(!showPin)}>{project.pin}</div>
                 }
             </WhiteTextTypography>
             <WhiteTextTypography component="h5">

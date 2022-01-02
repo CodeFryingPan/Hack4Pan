@@ -15,6 +15,7 @@
 
 .backButton {
   text-decoration: underline;
+  text-decoration-color: #28FE14;
   padding: 1rem;
 }
 
@@ -22,6 +23,11 @@
   min-width: 10rem;
   max-width: 16rem;
   margin-top: 1rem;
+}
+
+.joinButton {
+  text-decoration: underline;
+  text-decoration-color: #28FE14;
 }
 
 .title {

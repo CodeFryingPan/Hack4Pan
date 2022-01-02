@@ -72,7 +72,7 @@ export default function Description({ user, project }) {
                             setEdit(false);
                         }}>
                         <WhiteTextTypography style={{display: 'flex'}}>
-                            <EditIcon style={{marginRight: "0.5rem"}}/>Confirm 
+                            Confirm 
                         </WhiteTextTypography>
                     </Button>
                     <Button 

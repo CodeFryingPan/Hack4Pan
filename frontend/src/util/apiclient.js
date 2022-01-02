@@ -41,7 +41,7 @@ export const handleKick = (e, userid, project) => {
 export const handleJoin = async (userid, pin) => {
 
     let body = {
-        pin: pin,
+        pin: pin.replace(/\s/g, ''),
         uid: userid,
     }
 
@@ -91,15 +91,13 @@ export const handleDelete = (userid, project) => {
   }
 
 export const handleLeave = (e, userid, project) => {
-    e.preventDefault;
-
     const data = {
       "project": project,
       "uid": userid
     }
-
-    axios.put(`{${base}}/api/project/leave`, data)
-    .then(function (response) {
+    
+    axios.put(`${base}/api/project/leave`, data)
+        .then(function (response) {
           Router.push("/user/home");
       })
       .catch(function (error) {

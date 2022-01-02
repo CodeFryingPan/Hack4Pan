@@ -126,7 +126,7 @@ export default function Landing({ providers }) {
               <AccordionDetails>
                 
                 <WhiteTextTypography>
-                Hack The Pan is! We're currently working on a website that will allow users to submit their projects and present them in front of a Frying Pan's livestream. The judges will be Frying Pan and other tech YouTubers!
+                Hack The Pan is a hackathon. Everyone can submit their projects and liveshare it to an audience on Pan's livestream. The projects will be judged by Pan and maybe other tech YouTubers.
                 </WhiteTextTypography>
                 
               </AccordionDetails>

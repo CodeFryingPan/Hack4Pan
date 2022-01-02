@@ -7,7 +7,6 @@ import Router from 'next/router';
 import dynamic from 'next/dynamic'
 
 import RetroTextField from '../../shared/textfield/RetroTextField';
-const RetroButton = dynamic(() => import('../../shared/button/RetroButton'), { ssr: false })
 
 import styles from "./JoinProject.module.css";
 
@@ -59,7 +58,7 @@ export default function JoinProject({ user }) {
                     Pin: 
                 </WhiteTextTypography>
                 <RetroTextField
-                placeholder="************************"
+                placeholder="**************************"
                 required
                 type="password"
                 InputProps={{
@@ -73,15 +72,22 @@ export default function JoinProject({ user }) {
                 />
             </div>
             <div className={styles.buttonContainer}>
-            <RetroButton 
-            sx={{
-                '&& .MuiTouchRipple-rippleVisible': {
-                  animationDuration: '50ms',
-                }
-            }}
-            onClick={(e) => handleJoin(user.uid, pin)}>
-                JOIN
-            </RetroButton>
+                <Button 
+                    variant="standard"
+                    className={styles.joinButton}
+                    sx={{
+                        '&& .MuiTouchRipple-rippleVisible': {
+                            animationDuration: '50ms',   
+                        },
+                        padding: "1rem 2rem",
+                        border: "2px solid",
+                        borderColor: "white"
+                    }}
+                    onClick={(e) => handleJoin(user.uid, pin)}>
+                        <WhiteTextTypography>
+                            JOIN 
+                        </WhiteTextTypography>
+                </Button>
         </div>
     </div>
     )

@@ -2,6 +2,7 @@ import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import DiscordProvider from "next-auth/providers/discord"
 import clientPromise from '../../../src/util/mongodb'
+import axios from "axios";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -14,10 +15,43 @@ export default NextAuth({
   ],
   callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
+            
+
+             // ADD USER TO SERVER AND GIVE ROLE
+             const SERVER_ID = process.env.DISCORD_SERVER;
+             const ROLE_ID = process.env.ROLE_TO_GIVE;
+                    
+             const body = {
+                 "access_token": account.access_token,
+             }
+
+             const config = {
+                 headers: {
+                    "Authorization" :'Bot ' + process.env.DISCORD_BOT_TOKEN,
+                    "Content-Type" : "application/json"
+                 }
+             }
+
+             const uri = `https://discord.com/api/v9/guilds/${SERVER_ID}/members/${profile.id}`;
+             axios.put(uri, body, config)
+                 .then((r) => {
+                     console.log(r.status);
+                     const role_uri = `https://discord.com/api/v9/guilds/${SERVER_ID}/members/${profile.id}/roles/${ROLE_ID}`;
+                     axios.put(role_uri, body, config)
+                         .then((r) => {
+                             console.log(r.status);
+                         })
+                         .catch((err) => {
+                             console.log(err.response);
+                         })         
+                 })
+                 .catch((err) => {
+                     console.log(err.response);
+                 })
+
+            //  Add USER TO DATABASE
             const client = await clientPromise
             await client.connect()
-
-            console.log(profile);
 
             try {
                 const usersCollection = await client.db("Panathon").collection("Users")
