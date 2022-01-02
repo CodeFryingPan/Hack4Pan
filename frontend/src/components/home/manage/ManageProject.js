@@ -15,7 +15,7 @@ import Description from './description';
 import { Typography } from '@mui/material';
 import { withStyles } from '@mui/styles';
 
-import { handleDelete, handleLeave } from '../../../util/apiclient';
+import { handleDeleteProject, handleLeaveProject } from '../../../util/apiclient';
 
 import styles from "./ManageProject.module.css";
 
@@ -58,7 +58,7 @@ export default function ManageProject({ user, project, members }) {
             </WhiteTextTypography>
           </Button>
           ): (        
-            <Button variant="standard" onClick={(e) => handleLeave(e, user.uid, project)}>
+            <Button variant="standard" onClick={(e) => handleLeaveProject(e, user.uid, project)}>
               <WhiteTextTypography>
                   LEAVE PROJECT
               </WhiteTextTypography>
@@ -94,7 +94,7 @@ export default function ManageProject({ user, project, members }) {
               </WhiteTextTypography>
             </Button>
             <Button onClick={() => {
-              handleDelete(user.uid, project);
+              handleDeleteProject(user.uid, project);
               handleClose();
             }} autoFocus>
               <WhiteTextTypography>

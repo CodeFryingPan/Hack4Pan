@@ -4,7 +4,7 @@ import axios from "axios";
 
 const base = "http://localhost:3000"
 
-export const handleCreate = async (userId, pname) => {
+export const handleCreateProject = async (userId, pname) => {
     const project = {
         leader: userId,
         projectName: pname,
@@ -17,11 +17,13 @@ export const handleCreate = async (userId, pname) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        alert(error.response.data.data);
+        console.log(error.response.status);
+        console.log(error.response.data);
+        console.log(error.response.headers);
     });        
 }
 
-export const handleKick = (e, userid, project) => {
+export const handleKickProject = (e, userid, project) => {
     e.preventDefault;
     
     const body = {
@@ -34,11 +36,13 @@ export const handleKick = (e, userid, project) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        console.log(error);
+        console.log(error.response.status);
+        console.log(error.response.data);
+        console.log(error.response.headers);
     });     
 }
 
-export const handleJoin = async (userid, pin) => {
+export const handleJoinProject = async (userid, pin) => {
 
     let body = {
         pin: pin.replace(/\s/g, ''),
@@ -51,11 +55,13 @@ export const handleJoin = async (userid, pin) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        alert(error.response.data.data);
+        console.log(error.response.status);
+        console.log(error.response.data);
+        console.log(error.response.headers);
     }); 
 }
 
-export const handleEdit = (e, userid, project, description, link) => {
+export const handleEditProject = (e, userid, project, description, link) => {
 
     const data = {
         "uid": userid,
@@ -70,11 +76,13 @@ export const handleEdit = (e, userid, project, description, link) => {
       })
       .catch(function (error) {
           alert("Error while editing");
-          console.log(error);
+          console.log(error.response.status);
+          console.log(error.response.data);
+          console.log(error.response.headers);
       });
 }
 
-export const handleDelete = (userid, project) => {
+export const handleDeleteProject = (userid, project) => {
     const data = {
         "project": project,
         "uid": userid
@@ -86,11 +94,13 @@ export const handleDelete = (userid, project) => {
       })
       .catch(function (error) {
           alert("Error Deleting Project");
-          console.log(error);
+          console.log(error.response.status);
+          console.log(error.response.data);
+          console.log(error.response.headers);
       });
   }
 
-export const handleLeave = (e, userid, project) => {
+export const handleLeaveProject = (e, userid, project) => {
     const data = {
       "project": project,
       "uid": userid
@@ -102,6 +112,29 @@ export const handleLeave = (e, userid, project) => {
       })
       .catch(function (error) {
           alert("Error leaving.");
-          console.log(error);
+          console.log(error.response.status);
+          console.log(error.response.data);
+          console.log(error.response.headers);
       });
-  }
+}
+
+
+export const handleEditUser = (userid, tag)  => {
+    const data = {
+        "uid": userid,
+        "tag": tag
+      }
+      
+      axios.put(`${base}/api/user`, data)
+            .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error.response.status);
+            console.log(error.response.data);
+            console.log(error.response.headers);
+        });
+}
+
+
+

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import withStyles from '@mui/styles/withStyles';
 import { Typography, Button } from '@mui/material';
 
-import { handleJoin } from '../../../util/apiclient';
+import { handleJoinProject } from '../../../util/apiclient';
 import Router from 'next/router';
 import dynamic from 'next/dynamic'
 
@@ -83,7 +83,7 @@ export default function JoinProject({ user }) {
                         border: "2px solid",
                         borderColor: "white"
                     }}
-                    onClick={(e) => handleJoin(user.uid, pin)}>
+                    onClick={(e) => handleJoinProject(user.uid, pin)}>
                         <WhiteTextTypography>
                             JOIN 
                         </WhiteTextTypography>

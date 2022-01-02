@@ -159,7 +159,7 @@ const handler = async (req, res) => {
             return res.status(200).send({data: userResult})
         }   
     } else {
-        return res.status(401)
+        return res.status(401).send({"Error" : "Failed to get user session"})
     }
 }
 

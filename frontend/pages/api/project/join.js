@@ -49,7 +49,7 @@ const handler = async (req, res) => {
         } 
     } else {
       // Not Signed in
-      return res.status(401)
+      return res.status(401).send({"Error" : "Failed to get user session"})
     }
 }
 

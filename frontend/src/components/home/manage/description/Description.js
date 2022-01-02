@@ -3,7 +3,7 @@ import { TextField, Button, Typography } from '@mui/material';
 import { withStyles } from "@mui/styles";
 import EditIcon from '@mui/icons-material/Edit';
 
-import { handleEdit } from "../../../../util/apiclient";
+import { handleEditProject } from "../../../../util/apiclient";
 
 import styles from "./Description.module.css";
 
@@ -68,7 +68,7 @@ export default function Description({ user, project }) {
                         variant="standard"
                         className={styles.button}
                         onClick={(e) => {
-                            handleEdit(e, user.uid, project, description, link)
+                            handleEditProject(e, user.uid, project, description, link)
                             setEdit(false);
                         }}>
                         <WhiteTextTypography style={{display: 'flex'}}>

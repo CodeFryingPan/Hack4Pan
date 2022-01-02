@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 import withStyles from '@mui/styles/withStyles';
 
-import { handleKick } from '../../../../util/apiclient';
+import { handleKickProject } from '../../../../util/apiclient';
 
 import styles from "./Dashboard.module.css";
 
@@ -88,7 +88,7 @@ const Dashboard = ({members, user, project}) => {
                             </TableCell>
                             <TableCell align="right">
                                 { (project.leader == user.uid && member.uid != project.leader &&
-                                    <IconButton id={member.uid} onClick={(e) => handleKick(e, member.uid, project)}  variant="contained">
+                                    <IconButton id={member.uid} onClick={(e) => handleKickProject(e, member.uid, project)}  variant="contained">
                                         <RedTextTypography>
                                             KICK
                                         </RedTextTypography>

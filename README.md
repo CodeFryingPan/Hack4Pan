@@ -17,13 +17,14 @@ DONE:
 -TextFields
 - Ping them on discord / give them role 
 - New Discord Bot => Give Role 
+- Added Updated Discord Tags
 
 TODO:
+- Add Updating Discord Images
 - Hackathon Description + Prizes
 - Deploy
 
 Optional:
-- Ping API to get Discord Username everytime with Access_token
 - Hide ProjectID (Fully) ?
 - Setup Emoticon Caching (No clue why doesn't work)
 

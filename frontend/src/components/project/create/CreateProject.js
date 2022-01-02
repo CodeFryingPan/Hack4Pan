@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import withStyles from '@mui/styles/withStyles';
 
-import { handleCreate } from '../../../util/apiclient';
+import { handleCreateProject } from '../../../util/apiclient';
 import Router from "next/router";
 import dynamic from 'next/dynamic'
 
@@ -106,7 +106,7 @@ export default function CreateProject( {user} ) {
                     if (projectNameError) {
                         alert("Your project name should only contain letters or numbers.");
                     } else {
-                        handleCreate(user.uid, projectName);
+                        handleCreateProject(user.uid, projectName);
                     }
                 }}>
                     <WhiteTextTypography>
