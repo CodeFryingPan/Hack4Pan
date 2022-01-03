@@ -1,4 +1,5 @@
 import axios from "axios";
+import { logger } from "./logger";
 
 export async function  addUserToServer(access_token, serverID, userID, roleID = null) {
         if (serverID && userID) {
@@ -17,27 +18,27 @@ export async function  addUserToServer(access_token, serverID, userID, roleID = 
                 const uri = `https://discord.com/api/v9/guilds/${serverID}/members/${userID}`;
                 axios.put(uri, body, config)
                     .then((r) => {
-                        console.log(r.status);
+                        logger(r.status);
                         if (roleID == null) {
                             return;
                         } 
                         const role_uri = `https://discord.com/api/v9/guilds/${serverID}/members/${userID}/roles/${roleID}`;
                         axios.put(role_uri, body, config)
                             .then((r) => {
-                                console.log(r.status);
+                                logger(r.status);
                             })
                             .catch((err) => {
-                                console.log(err.response);
+                                logger(err.response);
                             })        
                     })
                     .catch((err) => {
-                        console.log(err.response);
+                        logger(err.response);
                     })
             } else {
-                console.log("FAILED TO GET ACCESS_TOKEN");
+                logger("FAILED TO GET ACCESS_TOKEN");
             }
         } else {
-            console.log("FAILED TO GET SERVERID OR USERID");
+            logger("FAILED TO GET SERVERID OR USERID");
         }
     }
 
@@ -53,13 +54,13 @@ export async function  getDiscordUser(userID, serverID) {
         try {
             const response = await axios.get(uri, config)
 
-            console.log(response.data);
+            logger(response.data);
 
             const data = response.data.user;
 
             return data;
         } catch(e) {
-            console.log(e);
+            logger(e);
             return null;
         }
 }

@@ -4,6 +4,7 @@ import DiscordProvider from "next-auth/providers/discord"
 import clientPromise from '../../../src/util/mongodb'
 import axios from "axios";
 import { addUserToServer } from "../../../src/util/discordClient";
+import { logger } from "../../../src/util/logger";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -39,10 +40,10 @@ export default NextAuth({
                         image: profile.image_url
                     }   
                     const result = await usersCollection.insertOne(userDoc)
-                    console.log(`A document was inserted with the _id: ${result.insertedId}`);
+                    logger(`A document was inserted with the _id: ${result.insertedId}`);
                 }
             } catch (e) {
-                console.log(e);
+                logger(e);
             } finally {
                 return true
             }
