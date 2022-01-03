@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* Not exactly required, but this is the PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
+          {this.props.emotionStyleTags}
         </Head>
         <body>
           <Main />
@@ -75,9 +76,12 @@ MyDocument.getInitialProps = async (ctx) => {
     />
   ));
 
+  console.log(emotionStyleTags);
+
   return {
     ...initialProps,
+    emotionStyleTags,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement(), emotionStyleTags],
+    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement(), ],
   };
 };
