@@ -50,7 +50,7 @@ export default function Selection() {
                 <Card className={styles.join}>
                     <CardActionArea  className={styles.actionArea}>
                     <Link href="/project/join">
-                        <CardContent>
+                        <CardContent className={styles.cardContent}>
                             <JoinTypography gutterBottom variant="h5" component="div">
                             Join Project
                             </JoinTypography>
