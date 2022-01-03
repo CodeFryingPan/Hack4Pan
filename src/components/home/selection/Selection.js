@@ -34,7 +34,7 @@ export default function Selection() {
                 <Card className={styles.create}>
                     <CardActionArea className={styles.actionArea}>
                     <Link href="/project/create">
-                        <CardContent>
+                        <CardContent className={styles.cardContent}>
                             <CreateTypography gutterBottom variant="h5" component="div">
                                 Create Project
                             </CreateTypography>
