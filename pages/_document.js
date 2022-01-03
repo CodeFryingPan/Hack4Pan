@@ -76,12 +76,10 @@ MyDocument.getInitialProps = async (ctx) => {
     />
   ));
 
-  console.log(emotionStyleTags);
-
   return {
     ...initialProps,
-    emotionStyleTags,
+    emotionStyleTags
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement(), ],
+    // styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement(), ],
   };
 };
