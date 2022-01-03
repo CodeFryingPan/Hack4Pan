@@ -3,7 +3,7 @@ import Router from "next/router";
 import axios from "axios";
 import { logger } from "./logger";
 
-const base = "http://localhost:3000"
+const base = process.env.VERCEL_URL;
 
 export const handleCreateProject = async (userId, pname) => {
     const project = {
