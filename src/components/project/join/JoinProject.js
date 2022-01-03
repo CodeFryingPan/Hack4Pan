@@ -14,9 +14,10 @@ export default function JoinProject({ host, user }) {
     
     const ButtonTypography = withStyles({
         root: {
-            color: "#28FE14",
+            color: "#FFFFFF",
             fontFamily: '"Press Start 2P", cursive',
-            textDecoration: "underline"
+            textDecoration: "underline",
+            textDecorationColor: "#28FE14",
         }
     })(Typography);   
 

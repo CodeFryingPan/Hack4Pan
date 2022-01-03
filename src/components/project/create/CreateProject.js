@@ -24,7 +24,8 @@ export default function CreateProject( {host, user} ) {
         root: {
             color: "#FFFFFF",
             fontFamily: '"Press Start 2P", cursive',
-            textDecoration: "underline"
+            textDecoration: "underline",
+            textDecorationColor: "#FFFF00",
         }
     })(Typography);   
     
