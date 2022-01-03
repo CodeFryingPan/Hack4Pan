@@ -33,7 +33,7 @@ export const handleKickProject = (e, host, userid, project) => {
       "uid": userid
     }
     
-    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+    const url = host == "localhost:3000" ? `http://${host}/api/project/kick` : `https://${host}/api/project/kick`;
 
     axios.delete(url, {data: body})
     .then(function (response) {
@@ -55,7 +55,7 @@ export const handleJoinProject = async (host, userid, pin) => {
         uid: userid,
     }
 
-    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+    const url = host == "localhost:3000" ? `http://${host}/api/project/join` : `https://${host}/api/project/join`;
 
     await axios.put(url, body)
     .then(function (response) {
@@ -126,7 +126,7 @@ export const handleLeaveProject = (e, host, userid, project) => {
       "uid": userid
     }
 
-    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+    const url = host == "localhost:3000" ? `http://${host}/api/project/leave` : `https://${host}/api/project/leave`;
 
     axios.put(url, data)
         .then(function (response) {
@@ -150,7 +150,7 @@ export const handleEditUser = (host, userid, tag)  => {
         "tag": tag
       }
       
-      const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+      const url = host == "localhost:3000" ? `http://${host}/api/user/` : `https://${host}/api/user`;
 
       axios.put(url, data)
             .then(function (response) {

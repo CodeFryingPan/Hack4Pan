@@ -24,7 +24,6 @@ const handler = async (req, res) => {
             if (body.uid !== session.user.id) {
                 return res.status(401).send({data: "Unauthorized to access that route!"})
             }
-            console.log(body.pin);
 
             const filterProject = {pin: body.pin};
             const projectCollection = await client.db("Panathon").collection("Projects");
