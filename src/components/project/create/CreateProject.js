@@ -20,13 +20,21 @@ export default function CreateProject( {host, user} ) {
     const [projectName, setProjectName] = useState("");
     const [projectNameError, setProjectNameError] = useState(true);
 
-    const WhiteTextTypography = withStyles({
+    const ButtonTypography = withStyles({
         root: {
             color: "#FFFFFF",
-            fontFamily: '"Press Start 2P", cursive'
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline"
         }
     })(Typography);   
     
+    const WhiteTextTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+        }
+    })(Typography);   
+
     const TitleTypography = withStyles({
         root: {
             color: "#FFFF00",
@@ -58,18 +66,18 @@ export default function CreateProject( {host, user} ) {
                         e.preventDefault();
                         Router.push("/user/home");
                     }}>
-                    <WhiteTextTypography>
+                    <ButtonTypography>
                         BACK
-                    </WhiteTextTypography>
+                    </ButtonTypography>
                 </Button>
             </div>
            
-            <TitleTypography className={styles.title}>
+            <div variant="h1" className={styles.title}>
                 Create a 
-            </TitleTypography>
-            <TitleTypography className={styles.title}>
+            </div>
+            <div variant="h1"  className={styles.title}>
                 Project/Team!
-            </TitleTypography>
+            </div>
                 
 
             <div className={styles.textfieldContainer}>
@@ -109,9 +117,9 @@ export default function CreateProject( {host, user} ) {
                         handleCreateProject(host, user.uid, projectName);
                     }
                 }}>
-                    <WhiteTextTypography>
+                    <ButtonTypography>
                         CREATE 
-                    </WhiteTextTypography>
+                    </ButtonTypography>
                 </Button>
             </div>
         </div>

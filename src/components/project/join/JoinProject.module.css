@@ -32,8 +32,11 @@
 
 .title {
 /* word-break: break-all; */
-font-size: 20px;
-white-space: normal;
+  font-size: 20px;
+  white-space: normal;
+  color: #28FE14;
+  font-family: "Press Start 2P", cursive;
+  line-height: 1.5;
 }
 
 .textfieldContainer {

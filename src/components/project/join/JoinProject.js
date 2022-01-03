@@ -12,6 +12,14 @@ import styles from "./JoinProject.module.css";
 
 export default function JoinProject({ host, user }) {
     
+    const ButtonTypography = withStyles({
+        root: {
+            color: "#28FE14",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline"
+        }
+    })(Typography);   
+
     const WhiteTextTypography = withStyles({
         root: {
             color: "#FFFFFF",
@@ -39,18 +47,18 @@ export default function JoinProject({ host, user }) {
                         e.preventDefault();
                         Router.push("/user/home");
                     }}>
-                    <WhiteTextTypography>
+                    <ButtonTypography>
                         BACK
-                    </WhiteTextTypography>
+                    </ButtonTypography>
                 </Button>
             </div>
         
-            <TitleTypography className={styles.title}>
+            <div className={styles.title}>
                 Join a 
-            </TitleTypography>
-            <TitleTypography className={styles.title}>
+            </div>
+            <div className={styles.title}>
                 Project/Team!
-            </TitleTypography>
+            </div>
                 
 
             <div className={styles.textfieldContainer}>
@@ -84,9 +92,9 @@ export default function JoinProject({ host, user }) {
                         borderColor: "white"
                     }}
                     onClick={(e) => handleJoinProject(host, user.uid, pin)}>
-                        <WhiteTextTypography>
+                        <ButtonTypography>
                             JOIN 
-                        </WhiteTextTypography>
+                        </ButtonTypography>
                 </Button>
         </div>
     </div>

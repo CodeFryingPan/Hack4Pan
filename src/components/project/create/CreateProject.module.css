@@ -14,7 +14,6 @@
 }
 
 .backButton {
-  text-decoration: underline;
   padding: 1rem;
 }
 
@@ -33,6 +32,9 @@
   /* word-break: break-all; */
   font-size: 20px;
   white-space: normal;
+  color: #FFFF00;
+  font-family: "Press Start 2P", cursive;
+  line-height: 1.5;
 }
 
 .textfieldContainer {
