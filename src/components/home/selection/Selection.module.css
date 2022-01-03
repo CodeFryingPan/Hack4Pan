@@ -30,6 +30,10 @@
 }
 
 
+.cardContent {
+    background-color: #0F0E0E;
+}
+
 .join {
     border-radius: 1rem; 
     flex: 1;

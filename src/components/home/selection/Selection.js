@@ -35,12 +35,12 @@ export default function Selection() {
                     <CardActionArea className={styles.actionArea}>
                     <Link href="/project/create">
                         <CardContent>
-                        <CreateTypography gutterBottom variant="h5" component="div">
-                            Create Project
-                        </CreateTypography>
-                        <CreateTypography variant="body2" color="text.primary">
-                            Click here if you are a loner or a project leader!
-                        </CreateTypography>
+                            <CreateTypography gutterBottom variant="h5" component="div">
+                                Create Project
+                            </CreateTypography>
+                            <CreateTypography variant="body2" color="text.primary">
+                                Click here if you are a loner or a project leader!
+                            </CreateTypography>
                         </CardContent>
                     </Link>
                     </CardActionArea>
@@ -51,13 +51,13 @@ export default function Selection() {
                     <CardActionArea  className={styles.actionArea}>
                     <Link href="/project/join">
                         <CardContent>
-                        <JoinTypography gutterBottom variant="h5" component="div">
-                        Join Project
-                        </JoinTypography>
-                        <JoinTypography variant="body2" color="text.primary">
-                            Click here if you have a project to join!
-                        </JoinTypography>
-                        </CardContent>
+                            <JoinTypography gutterBottom variant="h5" component="div">
+                            Join Project
+                            </JoinTypography>
+                            <JoinTypography variant="body2" color="text.primary">
+                                Click here if you have a project to join!
+                            </JoinTypography>
+                            </CardContent>
                     </Link>
                     </CardActionArea>
                 </Card>
