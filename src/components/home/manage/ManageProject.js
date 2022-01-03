@@ -58,7 +58,7 @@ export default function ManageProject({ host, user, project, members }) {
             </WhiteTextTypography>
           </Button>
           ): (        
-            <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user, user.uid, project)}>
+            <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user.uid, project)}>
               <WhiteTextTypography>
                   LEAVE PROJECT
               </WhiteTextTypography>

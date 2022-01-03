@@ -18,11 +18,12 @@ DONE:
 - Ping them on discord / give them role 
 - New Discord Bot => Give Role 
 - Added Updated Discord Tags
+- Deploy
 
 TODO:
+- Fix Deploy
 - Add Updating Discord Images
 - Hackathon Description + Prizes
-- Deploy
 
 Optional:
 - Hide ProjectID (Fully) ?
