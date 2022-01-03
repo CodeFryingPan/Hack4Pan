@@ -19,9 +19,7 @@ export const handleCreateProject = async (userId, pname) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers);
+        logger(error.response);
     });        
 }
 
@@ -38,9 +36,7 @@ export const handleKickProject = (e, userid, project) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers);
+        logger(error.response);
     });     
 }
 
@@ -57,9 +53,7 @@ export const handleJoinProject = async (userid, pin) => {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers);
+        logger(error.response);
     }); 
 }
 
@@ -82,9 +76,7 @@ export const handleEditProject = (e, userid, project, description, link) => {
       .catch(function (error) {
         alert("Error while editing");
           
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers);  
+logger(error.response);  
       });
 }
 
@@ -100,11 +92,8 @@ export const handleDeleteProject = (userid, project) => {
         Router.push("/user/home");
       })
       .catch(function (error) {
-        alert("Error Deleting Project");
-         
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers); 
+        alert("Error Deleting Project"); 
+        logger(error.response); 
       });
   }
 
@@ -123,9 +112,7 @@ export const handleLeaveProject = (e, userid, project) => {
       })
       .catch(function (error) {
         alert("Error leaving.");  
-        logger(error.response.status);
-        logger(error.response.data);
-        logger(error.response.headers);
+        logger(error.response);
       });
 }
 
@@ -141,9 +128,7 @@ export const handleEditUser = (userid, tag)  => {
             logger(response)
         })
         .catch(function (error) {
-            logger(error.response.status);
-            logger(error.response.data);
-            logger(error.response.headers);
+            logger(error.response);
         });
 }
 
