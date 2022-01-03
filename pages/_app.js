@@ -14,11 +14,11 @@ const clientSideEmotionCache = createEmotionCache();
 function MyApp({ Component, emotionCache = clientSideEmotionCache, pageProps: { session, ...pageProps }, }) {
 
   return (
-      // <CacheProvider value={emotionCache}>
+      <CacheProvider value={emotionCache}>
         <SessionProvider session={session}>
             <Component {...pageProps} />
         </SessionProvider>
-      // </CacheProvider>
+      </CacheProvider>
   )
 }
 

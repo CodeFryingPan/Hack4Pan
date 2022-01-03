@@ -14,7 +14,8 @@ export default function Home({ host, user, members, project }) {
     const RedTextTypography = withStyles({
       root: {
         color: "#E50000",
-        fontFamily: '"Press Start 2P", cursive'
+        fontFamily: '"Press Start 2P", cursive',
+        textDecoration: "underline"
       }
     })(Typography);
 

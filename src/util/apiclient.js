@@ -101,7 +101,9 @@ export const handleDeleteProject = (host, userid, project) => {
         "uid": userid
     }  
 
-    const url = host == "localhost:3000" ? `https//${host}/api/project` : `https://${host}/api/project`;
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+    console.log(url);
 
     axios.delete(url, {data: data})
     .then(function (response) {
@@ -125,7 +127,7 @@ export const handleLeaveProject = (e, host, userid, project) => {
     }
 
     const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
-    
+
     axios.put(url, data)
         .then(function (response) {
           Router.push("/user/home");
