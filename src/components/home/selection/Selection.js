@@ -32,7 +32,7 @@ export default function Selection() {
         <div className={styles.container}>
             <div className={styles.card}>
                 <Card className={styles.create}>
-                    <CardActionArea>
+                    <CardActionArea className={styles.actionArea}>
                     <Link href="/project/create">
                         <CardContent>
                         <CreateTypography gutterBottom variant="h5" component="div">
@@ -48,7 +48,7 @@ export default function Selection() {
             </div>
             <div className={styles.card}>
                 <Card className={styles.join}>
-                    <CardActionArea>
+                    <CardActionArea  className={styles.actionArea}>
                     <Link href="/project/join">
                         <CardContent>
                         <JoinTypography gutterBottom variant="h5" component="div">
