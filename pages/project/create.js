@@ -15,6 +15,8 @@ export async function getServerSideProps(context) {
       }
     }  
 
+    const host =  context.req.headers.host;
+
     const client = await clientPromise
     await client.connect()
 
@@ -31,11 +33,11 @@ export async function getServerSideProps(context) {
     } 
 
     return {
-        props: { user: JSON.parse(JSON.stringify(user)) }
+        props: { host: host, user: JSON.parse(JSON.stringify(user)) }
     }
 }
 
-export default function CreateProjectPage({user}) {
+export default function CreateProjectPage({host, user}) {
     return (
       <div>
         <Head>
@@ -43,7 +45,7 @@ export default function CreateProjectPage({user}) {
             <meta name="description" content="Hack4Pan hackathon" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <CreateProject user={user} />
+        <CreateProject host={host} user={user} />
       </div>
         
     )

@@ -1,7 +1,6 @@
 // api/project/{:ID} 
 import clientPromise from '../../../src/util/mongodb'
 import { getSession } from "next-auth/react"
-import { logger } from "../../../src/util/logger";
 
 const handler = async (req, res) => {
     const client = await clientPromise
@@ -25,7 +24,7 @@ const handler = async (req, res) => {
             if (body.uid !== session.user.id) {
                 return res.status(401).send({data: "Unauthorized to access that route!"})
             }
-            logger(body.pin);
+            console.log(body.pin);
 
             const filterProject = {pin: body.pin};
             const projectCollection = await client.db("Panathon").collection("Projects");
@@ -44,7 +43,7 @@ const handler = async (req, res) => {
 
             const usersCollection = await client.db("Panathon").collection("Users")
             const userResult = await usersCollection.updateOne(filter, updateDoc, options)
-            logger(`A document was updated with the _id: ${userResult.modifiedCount}`);
+            console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
             
             return res.status(200).send({data: userResult})
         } 

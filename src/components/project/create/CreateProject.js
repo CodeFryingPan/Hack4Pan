@@ -15,7 +15,7 @@ import styles from "./CreateProject.module.css";
 import RetroTextField from '../../shared/textfield/RetroTextField';
 import { border } from '@mui/system';
 
-export default function CreateProject( {user} ) {
+export default function CreateProject( {host, user} ) {
     
     const [projectName, setProjectName] = useState("");
     const [projectNameError, setProjectNameError] = useState(true);
@@ -106,7 +106,7 @@ export default function CreateProject( {user} ) {
                     if (projectNameError) {
                         alert("Your project name should only contain letters or numbers.");
                     } else {
-                        handleCreateProject(user.uid, projectName);
+                        handleCreateProject(host, user.uid, projectName);
                     }
                 }}>
                     <WhiteTextTypography>

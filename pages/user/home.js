@@ -6,8 +6,6 @@ import Home from "../../src/components/home";
 import { getDiscordUser } from "../../src/util/discordClient";
 import { handleEditUser } from "../../src/util/apiclient";
 
-import axios from "axios";
-
 export async function getServerSideProps(context) {
 
     const session = await getSession(context)
@@ -20,6 +18,8 @@ export async function getServerSideProps(context) {
         },
       }
     }  
+
+    const host =  context.req.headers.host;
 
     // TODO: CHANGE THESE TO API AFTER SO WE DONT DO THESE DATABASE OPERATIONS HERE
     const client = await clientPromise
@@ -42,6 +42,7 @@ export async function getServerSideProps(context) {
      
       return {
         props: { 
+            host: host,
             discordTag: tag,
             user: JSON.parse(JSON.stringify(user)), 
             members: JSON.parse(JSON.stringify(members)),
@@ -51,6 +52,7 @@ export async function getServerSideProps(context) {
     } else {
         return {
           props: { 
+              host: host,
               user: JSON.parse(JSON.stringify(user)), 
               members: JSON.parse(JSON.stringify(members)),
               project: JSON.parse(JSON.stringify(project)),
@@ -60,7 +62,7 @@ export async function getServerSideProps(context) {
 }
 
 
-export default function UserHomePage({ user, members, project, discordTag }) {
+export default function UserHomePage({ host, user, members, project, discordTag }) {
 
   // If the discord tag is not the same in user/home then update it for other users!
   if(user.tag !== discordTag) {
@@ -74,7 +76,7 @@ export default function UserHomePage({ user, members, project, discordTag }) {
           <meta name="description" content="Hack4Pan hackathon" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Home user={user} members={members} project={project} />
+        <Home host={host} user={user} members={members} project={project} />
       </div>
       
     )

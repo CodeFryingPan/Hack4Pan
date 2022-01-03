@@ -10,7 +10,7 @@ import RetroTextField from '../../shared/textfield/RetroTextField';
 
 import styles from "./JoinProject.module.css";
 
-export default function JoinProject({ user }) {
+export default function JoinProject({ host, user }) {
     
     const WhiteTextTypography = withStyles({
         root: {
@@ -83,7 +83,7 @@ export default function JoinProject({ user }) {
                         border: "2px solid",
                         borderColor: "white"
                     }}
-                    onClick={(e) => handleJoinProject(user.uid, pin)}>
+                    onClick={(e) => handleJoinProject(host, user.uid, pin)}>
                         <WhiteTextTypography>
                             JOIN 
                         </WhiteTextTypography>

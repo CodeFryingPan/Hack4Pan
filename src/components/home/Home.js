@@ -9,7 +9,7 @@ import ManageProject from "./manage";
 
 import styles from "./Home.module.css"
 
-export default function Home({ user, members, project }) {
+export default function Home({ host, user, members, project }) {
 
     const RedTextTypography = withStyles({
       root: {
@@ -22,7 +22,7 @@ export default function Home({ user, members, project }) {
         <div className={styles.container}>
             {
             user.project ?
-             (<ManageProject user={user} project={project} members={members} />)
+             (<ManageProject host={host} user={user} project={project} members={members} />)
             : <Selection></Selection>
             }
             <Button className={styles.signOutButton} color="error" variant="standard" onClick={() =>  {

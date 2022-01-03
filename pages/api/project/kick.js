@@ -1,6 +1,5 @@
 import { useSession, signIn, signOut, getSession, getProviders } from "next-auth/react"
 import clientPromise from '../../../src/util/mongodb'
-import { logger } from "../../../src/util/logger";
 
 const handler = async (req, res) => {
     const client = await clientPromise
@@ -44,7 +43,7 @@ const handler = async (req, res) => {
 
             const usersCollection = await client.db("Panathon").collection("Users")
             const userResult = await usersCollection.updateOne(filter, updateDoc, options)
-            logger(`A document was updated with the _id: ${userResult.insertedId}`);
+            console.log(`A document was updated with the _id: ${userResult.insertedId}`);
         
             return res.status(204).send({data: userResult})
             

@@ -1,11 +1,8 @@
 
 import Router from "next/router";
 import axios from "axios";
-import { logger } from "./logger";
 
-const base = process.env.HOST;
-
-export const handleCreateProject = async (userId, pname) => {
+export const handleCreateProject = async (host, userId, pname) => {
     const project = {
         leader: userId,
         projectName: pname,
@@ -13,52 +10,67 @@ export const handleCreateProject = async (userId, pname) => {
         link: "",
     }
 
-    await axios.post(`${base}/api/project`, project)
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+    await axios.post(url, project)
     .then(function (response) {
-        logger(response)
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response);
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
     });        
 }
 
-export const handleKickProject = (e, userid, project) => {
+export const handleKickProject = (e, host, userid, project) => {
     e.preventDefault;
     
     const body = {
       "project": project,
       "uid": userid
     }
-  
-    axios.delete(`${base}/api/project/kick`, {data: body})
+    
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+    axios.delete(url, {data: body})
     .then(function (response) {
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response);
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
     });     
 }
 
-export const handleJoinProject = async (userid, pin) => {
+export const handleJoinProject = async (host, userid, pin) => {
 
     let body = {
         pin: pin.replace(/\s/g, ''),
         uid: userid,
     }
 
-    await axios.put(`${base}/api/project/join`, body)
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+    await axios.put(url, body)
     .then(function (response) {
-        logger(response)
         Router.push("/user/home");
     })
     .catch(function (error) {
-        logger(error.response);
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
     }); 
 }
 
-export const handleEditProject = (e, userid, project, description, link) => {
-
+export const handleEditProject = (e, host, userid, project, description, link) => {
     const data = {
         "uid": userid,
         "project": project,
@@ -66,69 +78,88 @@ export const handleEditProject = (e, userid, project, description, link) => {
         "link": link
     }
 
-    axios.put(`${base}/api/project`, data)
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+    axios.put(url, data)
     .then(function (response) {
-        
-        logger(response)
-        
         Router.push("/user/home");
       })
       .catch(function (error) {
-        alert("Error while editing");
-          
-logger(error.response);  
+        alert("Error while editing");  
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
       });
 }
 
-export const handleDeleteProject = (userid, project) => {
+export const handleDeleteProject = (host, userid, project) => {
+
     const data = {
         "project": project,
         "uid": userid
     }  
-  
-    axios.delete(`${base}/api/project/`, {data: data})
+
+    const url = host == "localhost:3000" ? `https//${host}/api/project` : `https://${host}/api/project`;
+
+    axios.delete(url, {data: data})
     .then(function (response) {
-        logger(response)
         Router.push("/user/home");
       })
       .catch(function (error) {
         alert("Error Deleting Project"); 
-        logger(error.response); 
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
       });
   }
 
-export const handleLeaveProject = (e, userid, project) => {
+export const handleLeaveProject = (e, host, userid, project) => {
+
     const data = {
       "project": project,
       "uid": userid
     }
+
+    const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
     
-    axios.put(`${base}/api/project/leave`, data)
+    axios.put(url, data)
         .then(function (response) {
-            
-        logger(response)
-            
           Router.push("/user/home");
       })
       .catch(function (error) {
         alert("Error leaving.");  
-        logger(error.response);
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
       });
 }
 
 
-export const handleEditUser = (userid, tag)  => {
+export const handleEditUser = (host, userid, tag)  => {
+
     const data = {
         "uid": userid,
         "tag": tag
       }
       
-      axios.put(`${base}/api/user`, data)
+      const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
+
+      axios.put(url, data)
             .then(function (response) {
-            logger(response)
+            // Do Nothing
         })
         .catch(function (error) {
-            logger(error.response);
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            }
         });
 }
 

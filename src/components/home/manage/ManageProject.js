@@ -19,7 +19,7 @@ import { handleDeleteProject, handleLeaveProject } from '../../../util/apiclient
 
 import styles from "./ManageProject.module.css";
 
-export default function ManageProject({ user, project, members }) {
+export default function ManageProject({ host, user, project, members }) {
     const [open, setOpen] = React.useState(false);
     
     const WhiteTextTypography = withStyles({
@@ -49,8 +49,8 @@ export default function ManageProject({ user, project, members }) {
           <h1>{project.projectName}</h1>
 
           <Pin project={project} />
-          <Description user={user} project={project}/>
-          <Dashboard members={members} user={user} project={project}/>
+          <Description host={host} user={user} project={project}/>
+          <Dashboard host={host} members={members} user={user} project={project}/>
         { (project.leader == user.uid)? (
           <Button disableRipple className={styles.projectActionButton} variant="standard" onClick={handleClickOpen}>
             <WhiteTextTypography>
@@ -58,7 +58,7 @@ export default function ManageProject({ user, project, members }) {
             </WhiteTextTypography>
           </Button>
           ): (        
-            <Button variant="standard" onClick={(e) => handleLeaveProject(e, user.uid, project)}>
+            <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user, user.uid, project)}>
               <WhiteTextTypography>
                   LEAVE PROJECT
               </WhiteTextTypography>
@@ -94,7 +94,7 @@ export default function ManageProject({ user, project, members }) {
               </WhiteTextTypography>
             </Button>
             <Button onClick={() => {
-              handleDeleteProject(user.uid, project);
+              handleDeleteProject(host, user.uid, project);
               handleClose();
             }} autoFocus>
               <WhiteTextTypography>

@@ -16,6 +16,8 @@ export async function getServerSideProps(context) {
       }
     }  
 
+    const host =  context.req.headers.host;
+
     const client = await clientPromise
     await client.connect()
 
@@ -31,10 +33,10 @@ export async function getServerSideProps(context) {
       }
     } 
 
-    return { props: { user: JSON.parse(JSON.stringify(user))}}
+    return { props: { host: host, user: JSON.parse(JSON.stringify(user))}}
 }
 
-export default function JoinProjectPage({ user }) {
+export default function JoinProjectPage({ host, user }) {
     return (
         <div>
             <Head>
@@ -42,7 +44,7 @@ export default function JoinProjectPage({ user }) {
                 <meta name="description" content="Hack4Pan hackathon" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <JoinProject user={user}/>
+            <JoinProject host={host} user={user}/>
         </div>
     )
 }

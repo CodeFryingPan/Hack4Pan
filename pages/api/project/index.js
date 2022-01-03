@@ -1,6 +1,5 @@
 import { useSession, signIn, signOut, getSession, getProviders } from "next-auth/react"
 import clientPromise from '../../../src/util/mongodb'
-import { logger } from "../../../src/util/logger";
 var sha = require('sha.js');
 
 const handler = async (req, res) => {
@@ -42,7 +41,7 @@ const handler = async (req, res) => {
             body.pin = null;
 
             const result = await projectsCollection.insertOne(body)
-            logger(`A document was inserted with the _id: ${result.insertedId}`);
+            console.log(`A document was inserted with the _id: ${result.insertedId}`);
 
             // generate project pin
             const projectId = result.insertedId;
@@ -50,7 +49,7 @@ const handler = async (req, res) => {
             const projectFilter = {_id: ObjectId(projectId)};
             const updateProject = { $set: { pin: projectPin}};
             const projectPinResult = await projectsCollection.updateOne(projectFilter, updateProject);
-            logger(projectPinResult);
+            console.log(projectPinResult);
 
             const options = { upsert: false };
             const userFilter = {uid: body.leader}
@@ -58,7 +57,7 @@ const handler = async (req, res) => {
 
             const usersCollection = await client.db("Panathon").collection("Users")
             const userResult = await usersCollection.updateOne(userFilter, updateUser, options)
-            logger(`A document was updated with the _id: ${userResult.modifiedCount}`);
+            console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
 
             
             return res.status(200).send({data: projectPinResult});
@@ -105,8 +104,8 @@ const handler = async (req, res) => {
             };
 
             const updateResult = await client.db("Panathon").collection("Projects").updateOne(filter, updateDoc)
-            logger(updateResult);
-            logger(`A document was updated with the _id: ${updateResult.modifiedCount}`);
+            console.log(updateResult);
+            console.log(`A document was updated with the _id: ${updateResult.modifiedCount}`);
             
             return res.status(200).send({data: updateResult})
         } else if (req.method === "GET") {
@@ -147,15 +146,15 @@ const handler = async (req, res) => {
             }
             
             const result = await projectsCollection.deleteOne(query)
-            logger(`Documents deleted: ${result.deleteCount}`);
+            console.log(`Documents deleted: ${result.deleteCount}`);
 
             const filter = {project: ObjectId(projectID)}
             const updateDoc = { $set: { project: undefined}};
 
             const usersCollection = await client.db("Panathon").collection("Users");
             const userResult = await usersCollection.updateMany(filter, updateDoc)
-            logger(userResult);
-            logger(`A document was updated with the _id: ${userResult.modifiedCount}`);
+            console.log(userResult);
+            console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
             
             return res.status(200).send({data: userResult})
         }   

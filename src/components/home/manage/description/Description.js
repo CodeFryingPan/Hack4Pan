@@ -9,7 +9,7 @@ import styles from "./Description.module.css";
 
 import RetroTextField from "../../../shared/textfield/RetroTextField";
 
-export default function Description({ user, project }) { 
+export default function Description({ host, user, project }) { 
     const [description, setDescription] = useState(project.description);
     const [link, setLink] = useState(project.link);
     const [didEdit, setEdit] = useState(false);
@@ -68,7 +68,7 @@ export default function Description({ user, project }) {
                         variant="standard"
                         className={styles.button}
                         onClick={(e) => {
-                            handleEditProject(e, user.uid, project, description, link)
+                            handleEditProject(e, host, user.uid, project, description, link)
                             setEdit(false);
                         }}>
                         <WhiteTextTypography style={{display: 'flex'}}>
