@@ -1,8 +1,6 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
 import DiscordProvider from "next-auth/providers/discord"
 import clientPromise from '../../../src/util/mongodb'
-import axios from "axios";
 import { addUserToServer } from "../../../src/util/discordClient";
 import { logger } from "../../../src/util/logger";
 
@@ -15,6 +13,7 @@ export default NextAuth({
       authorization: { params: { scope: 'identify email guilds.join' } },
     }),
   ],
+  secret: process.env.SECRET,
   callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
             
