@@ -47,7 +47,9 @@ export default NextAuth({
             }
         },
         async redirect({ url, baseUrl }) {
-            return baseUrl
+            console.log(url);
+            console.log(baseUrl);
+            return url
         },
         async session({ session, user, token }) {
             if (session?.user) {
