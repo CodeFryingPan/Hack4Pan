@@ -48,10 +48,10 @@ Open [http://localhost:3000](http://localhost:3000) and you'll be able to see th
 - Setup Emoticon Caching
 - FIX PADDING ISSUE BACK BUTTON/FAQ
 - Change error to message: for alerting purposes
+- Add Updating Discord Images
 
 ## TODO:
     - Countdown (?)
-    - Add Updating Discord Images
     - Hide ProjectID (Fully) ?
 
 
