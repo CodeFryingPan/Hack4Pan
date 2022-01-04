@@ -54,7 +54,7 @@ export async function  getDiscordUser(userID, serverID) {
             const response = await axios.get(uri, config)
 
             console.log(`DISCORD DATA ${JSON.stringify(response.data)}`);
-
+            console.log();
             const data = response.data.user;
 
             return data;

@@ -51,9 +51,12 @@ Open [http://localhost:3000](http://localhost:3000) and you'll be able to see th
 - Add Updating Discord Images
 
 ## TODO:
-    - Countdown (?)
-    - Hide ProjectID (Fully) ?
+- Countdown (?)
 
+
+## OPTIONAL:
+- Change DB calls in Serverside props to API routes from user/project
+- Hide ProjectID (Fully)
 
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠉⠁⠄⠄⠄⠉⠉⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⠄⠄⠄⠄⢀⠄⠄⠄⠄⠉⢻⣿⣿⣿⣿⣿⣿
