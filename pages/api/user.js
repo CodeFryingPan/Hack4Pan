@@ -13,14 +13,14 @@ const handler = async (req, res) => {
 
             // Check if user id is in body for checking
             if (!query.hasOwnProperty("uid")) {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
 
             const idQuery = {"uid": query.uid};
             const user = await client.db("Panathon").collection("Users").findOne(idQuery)
 
             if (user.uid !== session.user.id || session.user.id !== query.uid) {
-                return res.status(403).send({data: "Invalid User ID only the user set as Leader can create the project!"})
+                return res.status(403).send({message: "Invalid User ID only the user can get their specified user!"})
             }
 
             return res.status(200).send({user: user})
@@ -28,11 +28,11 @@ const handler = async (req, res) => {
             const body = req.body;
 
             if (!body.hasOwnProperty("tag") || !body.hasOwnProperty("uid"))  {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
 
             if (body.uid !== session.user.id) {
-                return res.status(403).send({data: "Invalid User ID only the authenticated user can update user!"})
+                return res.status(403).send({message: "Invalid User ID only the authenticated user can update user!"})
             }
 
             const idQuery = {"uid": body.uid};
@@ -43,9 +43,9 @@ const handler = async (req, res) => {
                 const updateUser = { $set: { tag: body.tag}};
                 const userUpdateResult = await client.db("Panathon").collection("Users").updateOne(userFilter, updateUser);
                 
-                return res.status(200).send({user: userUpdateResult});
+                return res.status(200).send({data: userUpdateResult});
             } else {
-                return res.status(404).send({data: "User does not exist in database."})
+                return res.status(404).send({message: "User does not exist in database."})
             }
         } else if (req.method === "POST") {
             return res.status(405).send({message: "Not Yet Implemented"})
@@ -53,7 +53,7 @@ const handler = async (req, res) => {
             return res.status(405).send({message: "Invalid Method."})
         }
     } else {
-        return res.status(401).send({"Error" : "Failed to get user session"})
+        return res.status(401).send({data : "Failed to get user session"})
     }
 }
 

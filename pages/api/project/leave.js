@@ -14,7 +14,7 @@ const handler = async (req, res) => {
             
             // Check if user exists for leaving
             if (!body.hasOwnProperty("uid")) {
-                return res.status(422).send({data: "Mising required process"})
+                return res.status(422).send({message: "Mising required process"})
             }
 
             if (body.uid !== session.user.id) {

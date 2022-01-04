@@ -15,16 +15,16 @@ const handler = async (req, res) => {
             // Check if user id is in body for checking
             if (!body.hasOwnProperty("leader") && !body.hasOwnProperty("projectName") && !body.hasOwnProperty("projectDescription")
             && !body.hasOwnProperty("projectLink"))  {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
 
             // Regex to check only for english letters and numbers
             if (!(/^[A-Za-z0-9 ]+$/.test(body.projectName))) {
-                return res.status(403).send({data: "Invalid project name, should only contain letters or numbers."})
+                return res.status(403).send({message: "Invalid project name, should only contain letters or numbers."})
             }
 
             if (body.leader !== session.user.id) {
-                return res.status(403).send({data: "Invalid User ID only the user set as Leader can create the project!"})
+                return res.status(403).send({message: "Invalid User ID only the user set as Leader can create the project!"})
             }
 
             // Check if project exists
@@ -35,7 +35,7 @@ const handler = async (req, res) => {
             const project = await projectsCollection.findOne(query)
 
             if (project) {
-                return res.status(403).send({data: "Project with that name already exists! Please change your project name."})
+                return res.status(403).send({message: "Project with that name already exists! Please change your project name."})
             }
 
             body.pin = null;
@@ -66,12 +66,12 @@ const handler = async (req, res) => {
 
             // Check if user id is in body for checking
             if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("project") && !body.hasOwnProperty("description") && !body.hasOwnProperty("link"))  {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
             
             // Check if the user is the correct user doing the request
             if (body.uid !== session.user.id) {
-                return res.status(401).send({data: "Unauthorized to access that route!"})
+                return res.status(401).send({message: "Unauthorized to access that route!"})
             }
 
             const projectID = body.project._id;
@@ -81,7 +81,7 @@ const handler = async (req, res) => {
             
             // Check if user and project exists and is apart of project
             if (typeof project === "undefined" || project === null) {
-                return res.status(404).send({data: "Project does not exist"})
+                return res.status(404).send({message: "Project does not exist"})
             }
 
             const userQuery = {uid: body.uid, project: ObjectId(projectID)}
@@ -90,7 +90,7 @@ const handler = async (req, res) => {
 
             // Check if user and project exists 
             if (typeof user === "undefined" || user === null) {
-                return res.status(404).send({data: "User does not exist or is not apart of Project"})
+                return res.status(404).send({message: "User does not exist or is not apart of Project"})
             }
             
 
@@ -113,7 +113,7 @@ const handler = async (req, res) => {
 
             // Check if user id is in body for checking
             if (!body.hasOwnProperty("uid"))  {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
 
             const projectsCollection = client.db("Panathon").collection("Projects");
@@ -127,7 +127,7 @@ const handler = async (req, res) => {
             
              // Check if user id is in body for checking
             if (!body.hasOwnProperty("project"))  {
-                return res.status(422).send({data: "Mising required parameter"})
+                return res.status(422).send({message: "Mising required parameter"})
             }
 
             // server side props to make api to db to join team
@@ -137,7 +137,7 @@ const handler = async (req, res) => {
             
             // Check if user and project exists for kicking
             if (typeof project === "undefined" || project === null) {
-                return res.status(404).send({data: "Project does not exist"})
+                return res.status(404).send({message: "Project does not exist"})
             }
 
             // Check if the user is the leader

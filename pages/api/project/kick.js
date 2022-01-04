@@ -12,7 +12,7 @@ const handler = async (req, res) => {
 
             // Check if user and project exists for kicking
             if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("project")) {
-                return res.status(422).send({data: "Mising required process"})
+                return res.status(422).send({message: "Mising required process"})
             }
 
             // User to delete
@@ -25,11 +25,11 @@ const handler = async (req, res) => {
 
             // Check if user and project exists for kicking
             if (typeof project === "undefined" || project === null) {
-                return res.status(404).send({data: "Project does not exist"})
+                return res.status(404).send({message: "Project does not exist"})
             }
 
             if (typeof userKick === "undefined" || userKick === null) {
-                return res.status(404).send({data: "User does not exist"})
+                return res.status(404).send({message: "User does not exist"})
             }
 
             // Check if the user is the leader
@@ -45,7 +45,7 @@ const handler = async (req, res) => {
             const userResult = await usersCollection.updateOne(filter, updateDoc, options)
             console.log(`A document was updated with the _id: ${userResult.insertedId}`);
         
-            return res.status(204).send({data: userResult})
+            return res.status(204).send({message: userResult})
             
         } else {
             return res.status(405).send({message: "Invalid Method."})

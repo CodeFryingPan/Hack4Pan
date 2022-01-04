@@ -49,9 +49,8 @@ Open [http://localhost:3000](http://localhost:3000) and you'll be able to see th
 - FIX PADDING ISSUE BACK BUTTON/FAQ
 
 ## TODO:
-
+    - Change error to message: for alerting purposes
     - Countdown (?)
-    - Change error to data: for alerting purposes
     - Add Updating Discord Images
     - Hide ProjectID (Fully) ?
 

@@ -18,11 +18,11 @@ const handler = async (req, res) => {
             
             // Check if user id is in body for checking
             if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("pin"))  {
-                return res.status(422).send({data: "Mising required process"})
+                return res.status(422).send({message: "Mising required process"})
             }
 
             if (body.uid !== session.user.id) {
-                return res.status(401).send({data: "Unauthorized to access that route!"})
+                return res.status(401).send({message: "Unauthorized to access that route!"})
             }
 
             const filterProject = {pin: body.pin};
@@ -31,7 +31,7 @@ const handler = async (req, res) => {
 
             // Check if project exists for kicking
             if (typeof project === "undefined" || project === null) {
-                return res.status(404).send({data: "Pin does not exist"})
+                return res.status(404).send({message: "Pin does not exist"})
             }
 
             // SEARCH USERS
@@ -51,9 +51,9 @@ const handler = async (req, res) => {
                 const userResult = await usersCollection.updateOne(filter, updateDoc, options)
                 console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
                 
-                return res.status(200).send({data: userResult})
+                return res.status(200).send({message: userResult})
             } else {
-                return res.status(409).send({data: "You cannot join a team that is already full :(" });
+                return res.status(409).send({message: "You cannot join a team that is already full :(" });
             }
         } 
     } else {
