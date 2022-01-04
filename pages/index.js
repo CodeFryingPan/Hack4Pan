@@ -211,7 +211,7 @@ export default function Landing({ providers }) {
               </AccordionSummary>
               <AccordionDetails>
                 <WhiteTextTypography>
-                Hack 4 Pan will occur during a weekend and everyone will have 72 hours.
+                Hack 4 Pan will occur for 72 hours, from Thursday 3pm EST till Sunday 3pm EST, which is when the presentations begin.
                 </WhiteTextTypography>
               </AccordionDetails>
             </Accordion>

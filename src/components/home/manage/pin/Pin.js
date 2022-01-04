@@ -23,14 +23,34 @@ const Pin = ({ project }) => {
         }
     })(Typography);
 
+    const SmallTextTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            fontSize: "12px"
+        }
+    })(Typography);
+
+    const ButtonTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline",
+            textDecorationColor: "#FFFF00",
+        }
+    })(Typography);  
+    
+
     return (
         <div className={styles.container}>
             <WhiteTextTypography component="h4">
                 Project Pin
             </WhiteTextTypography>
-            <WhiteTextTypography className={styles.pinDescription} component="p">
-                (Add your teammates by giving them this link!)
-            </WhiteTextTypography>
+            <div className={styles.pinDescription} >
+                <SmallTextTypography component="p">
+                    (Add your teammates by giving them this link!)
+                </SmallTextTypography>
+            </div>
             <WhiteTextTypography variant="div">
                 {
                     !showPin && 
@@ -48,9 +68,9 @@ const Pin = ({ project }) => {
                 variant="standard"
                 className={styles.copyButton}
                 onClick={(e) => copy(e)}>
-                <WhiteTextTypography>
+                <ButtonTypography>
                     <FileCopyIcon style={{marginRight: "1rem"}}/>COPY PIN
-                </WhiteTextTypography>
+                </ButtonTypography>
             </Button>
             { pinCopied && <span style={{fontSize: '10px'}}> {" "} Copied! :D</span> }
             </WhiteTextTypography>

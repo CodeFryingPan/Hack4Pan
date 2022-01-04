@@ -28,6 +28,8 @@ const Dashboard = ({host, members, user, project}) => {
     const RedTextTypography = withStyles({
         root: {
         color: "#E50000",
+        textDecoration: "underline",
+        textDecorationColor: "#E50000",
         fontFamily: '"Press Start 2P", cursive'
         }
     })(Typography);

@@ -20,7 +20,15 @@ export default function Description({ host, user, project }) {
         fontFamily: '"Press Start 2P", cursive'
         }
     })(Typography);
-
+    
+    const ButtonTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline",
+            textDecorationColor: "#FFFF00",
+        }
+    })(Typography);  
     
 
     return (
@@ -31,34 +39,36 @@ export default function Description({ host, user, project }) {
                 </WhiteTextTypography>
                 
                 
-                <RetroTextField
-                    placeholder="Describe your project..."
-                    variant="standard" 
-                    className={styles.descriptionTextField}
-                    value={description}
-                    multiline
-                    onChange={e => {
-                        setEdit(true);
-                        setDescription(e.target.value);
-                    }}
-                />
-                
+                <div className={styles.textFieldContainer}>
+                    <RetroTextField
+                        placeholder="Describe your project..."
+                        variant="standard" 
+                        className={styles.descriptionTextField}
+                        value={description}
+                        multiline
+                        onChange={e => {
+                            setEdit(true);
+                            setDescription(e.target.value);
+                        }}
+                    />
+                </div>
             </div>
             <div className={styles.link}>
                 <WhiteTextTypography component="h4">
                     Project Link
                 </WhiteTextTypography>
-                
-                <RetroTextField
-                    placeholder="Link your project..."
-                    variant="standard" 
-                    value={link}
-                    className={styles.linkTextField}
-                    onChange={e => {
-                        setEdit(true);
-                        setLink(e.target.value);
-                    }}
-                />
+                <div className={styles.textFieldContainer}>
+                    <RetroTextField
+                        placeholder="Link your project..."
+                        variant="standard" 
+                        value={link}
+                        className={styles.linkTextField}
+                        onChange={e => {
+                            setEdit(true);
+                            setLink(e.target.value);
+                        }}
+                    />
+                </div>
             </div>
             {
             didEdit  && ( 
@@ -71,9 +81,9 @@ export default function Description({ host, user, project }) {
                             handleEditProject(e, host, user.uid, project, description, link)
                             setEdit(false);
                         }}>
-                        <WhiteTextTypography style={{display: 'flex'}}>
+                        <ButtonTypography style={{display: 'flex'}}>
                             Confirm 
-                        </WhiteTextTypography>
+                        </ButtonTypography>
                     </Button>
                     <Button 
                     disableRipple
@@ -84,9 +94,9 @@ export default function Description({ host, user, project }) {
                         setLink("")
                         setEdit(false);
                     }}>
-                        <WhiteTextTypography>
+                        <ButtonTypography>
                             CANCEL 
-                        </WhiteTextTypography>
+                        </ButtonTypography>
                     </Button>
                 </div>
             )

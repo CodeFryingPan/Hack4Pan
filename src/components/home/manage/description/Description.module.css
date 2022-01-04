@@ -20,14 +20,17 @@
     padding: 1rem;
 }
 
+.textFieldContainer {
+    display: "flex";
+    margin: 3rem 2rem 2rem 2rem;
+}
+
 .descriptionTextField{
     display: "flex";
-    margin: 2rem;
 }
 
 .linkTextField {
     display: flex;
-    margin: 1rem 2rem;
 }
 
 .buttonContainer {

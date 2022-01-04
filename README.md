@@ -22,6 +22,8 @@ DONE:
 
 TODO:
 - Fix Deploy
+- Agree checkbox for terms and services
+- Countdown
 - Change error to data:
 - Add Modal for agreee to livestream
 - Add Updating Discord Images

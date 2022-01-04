@@ -36,6 +36,15 @@ export default function ManageProject({ host, user, project, members }) {
       }
   })(Typography);
 
+  const ButtonTypography = withStyles({
+    root: {
+        color: "#FFFFFF",
+        fontFamily: '"Press Start 2P", cursive',
+        textDecoration: "underline",
+        textDecorationColor: "#FFFF00",
+    }
+  })(Typography);  
+
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -53,15 +62,15 @@ export default function ManageProject({ host, user, project, members }) {
           <Dashboard host={host} members={members} user={user} project={project}/>
         { (project.leader == user.uid)? (
           <Button disableRipple className={styles.projectActionButton} variant="standard" onClick={handleClickOpen}>
-            <WhiteTextTypography>
+            <ButtonTypography>
               DELETE PROJECT
-            </WhiteTextTypography>
+            </ButtonTypography>
           </Button>
           ): (        
             <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user.uid, project)}>
-              <WhiteTextTypography>
+              <ButtonTypography>
                   LEAVE PROJECT
-              </WhiteTextTypography>
+              </ButtonTypography>
             </Button>
           )
         }
