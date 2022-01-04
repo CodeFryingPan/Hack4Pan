@@ -7,14 +7,14 @@
     min-height: 100vh;
 }
 
-.back {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .backButton {
   padding: 1rem;
+}
+
+.back {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
 }
 
   
@@ -62,8 +62,8 @@
   }
 
   .back {
-    left: 1.5rem;
-    top: 1.5rem;
+    left: 1rem;
+    top: 1rem;
   }
 
 }
@@ -80,8 +80,8 @@
   }
 
   .back {
-    left: 3rem;
-    top: 3rem;
+    left: 1rem;
+    top: 1rem;
   }
 
 }
@@ -93,7 +93,7 @@
   }
 
   .back {
-    left: 4rem;
-    top: 4rem;
+    left: 1rem;
+    top: 1rem;
   }
 }

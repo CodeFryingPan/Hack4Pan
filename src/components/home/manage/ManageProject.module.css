@@ -6,6 +6,11 @@
     flex-direction: column;
 }
 
+.projectTitle {
+    word-break: break-all;
+    white-space: normal;
+}
+
 .projectActionButton {
     margin: 2rem 0 0 0;
     text-decoration: underline;

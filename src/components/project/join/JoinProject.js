@@ -26,6 +26,16 @@ export default function JoinProject({ host, user }) {
             color: "#FFFFFF",
             fontFamily: '"Press Start 2P", cursive'
         }
+    })(Typography);  
+    
+    const BackButtonTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline",
+            textDecorationColor: "#28FE14",
+            fontSize: "16px"
+        }
     })(Typography);   
     
     const TitleTypography = withStyles({
@@ -48,9 +58,9 @@ export default function JoinProject({ host, user }) {
                         e.preventDefault();
                         Router.push("/user/home");
                     }}>
-                    <ButtonTypography>
+                    <BackButtonTypography>
                         BACK
-                    </ButtonTypography>
+                    </BackButtonTypography>
                 </Button>
             </div>
         

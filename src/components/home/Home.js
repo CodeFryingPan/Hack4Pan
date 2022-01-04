@@ -57,15 +57,8 @@ export default function Home({ host, user, members, project }) {
         fontFamily: '"Press Start 2P", cursive',
         textDecoration: "underline",
         textDecorationColor: "#FFFF00",
-      }
-    })(Typography);
-    
-    const DialogButtonTypography = withStyles({
-      root: {
-        color: "#FFFFFF",
-        fontFamily: '"Press Start 2P", cursive',
-        textDecoration: "underline",
-        textDecorationColor: "#FFFF00",
+        fontSize: "16px",
+        padding: "0.5rem"
       }
     })(Typography);
 
@@ -79,12 +72,13 @@ export default function Home({ host, user, members, project }) {
     return(
         <div className={styles.container}>
             <div className={styles.faqButtonContainer}>
-              
-              <Button className={styles.signOutButton} color="error" variant="standard" onClick={() =>  {
-                handleClickOpen()
-              }}>
-                <ButtonTypography> FAQ </ButtonTypography>
-              </Button>
+              <div className={styles.faqButton}>
+                <Button color="error" variant="standard" onClick={() =>  {
+                  handleClickOpen()
+                }}>
+                  <ButtonTypography> FAQ </ButtonTypography>
+                </Button>
+              </div>
               <Dialog                
                 open={open}
                 onClose={handleClose}

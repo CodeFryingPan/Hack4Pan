@@ -5,6 +5,7 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    height: 80%;
 }
 
 .card {
@@ -45,24 +46,24 @@
 
 @media screen and (min-width: 576px) {
     .container {
-        height: 90%
+        height: 85%
     }
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        height: 90%
+        height: 85%
     }
 }
 
 @media screen and (min-width: 992px) {
     .container {
-        height: 80%
+        height: 87.5%
     }
 }
 
 @media screen and (min-width: 1200px) {
     .container {
-        height: 80%
+        height: 88%
     }
 }

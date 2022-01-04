@@ -1,6 +1,6 @@
 .container {
     height: 100vh;
-    margin: 2rem 1rem;
+    margin: 0 2rem;
     justify-content: center;
     align-items: center;
     text-align: center;    
@@ -8,17 +8,24 @@
 }
 
 
-@media screen and (min-width: 768px) {
-    .container {
-        margin: 2rem;  
-    }
+.faqButton {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
 }
 
-@media screen and (min-width: 1200px) {
-    .container {
-        margin: 3rem;  
-    }
+.faqButtonContainer {
+    height: 3.5rem;
 }
+
+.dialogContainer {
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    background-color: #0F0E0E;
+    overflow-y: scroll;
+}
+
 
 .signOutButton{
     text-decoration: underline;
@@ -29,13 +36,36 @@
     margin: 1rem;
 }
 
-.faqButtonContainer {
-    margin: 1rem;
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        margin:  0 2rem;  
+    }
+
+    .faqButtonContainer {
+        height: 3.25rem;
+    }
 }
 
-.dialogContainer {
-    border-style: solid;
-    border-color: white;
-    border-width: 3px;
-    background-color: #0F0E0E;
+@media screen and (min-width: 1200px) {
+    .container {
+        margin: 0 3rem;  
+    }
+
+    .faqButtonContainer {
+        height: 3rem;
+    }
 }
+
+/*   */
+
+.dialogContainer::-webkit-scrollbar {
+    display:none;
+  }
+  
+.dialogContainer {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+  

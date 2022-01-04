@@ -20,7 +20,7 @@ export default function CreateProject( {host, user} ) {
     const [projectName, setProjectName] = useState("");
     const [projectNameError, setProjectNameError] = useState(true);
 
-    const ButtonTypography = withStyles({
+    const CreateButtonTypography = withStyles({
         root: {
             color: "#FFFFFF",
             fontFamily: '"Press Start 2P", cursive',
@@ -28,18 +28,21 @@ export default function CreateProject( {host, user} ) {
             textDecorationColor: "#FFFF00",
         }
     })(Typography);   
+
+    const BackButtonTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline",
+            textDecorationColor: "#FFFF00",
+            fontSize: "16px"
+        }
+    })(Typography);   
     
     const WhiteTextTypography = withStyles({
         root: {
             color: "#FFFFFF",
             fontFamily: '"Press Start 2P", cursive',
-        }
-    })(Typography);   
-
-    const TitleTypography = withStyles({
-        root: {
-            color: "#FFFF00",
-            fontFamily: '"Press Start 2P", cursive'
         }
     })(Typography);   
 
@@ -67,9 +70,9 @@ export default function CreateProject( {host, user} ) {
                         e.preventDefault();
                         Router.push("/user/home");
                     }}>
-                    <ButtonTypography>
+                    <BackButtonTypography>
                         BACK
-                    </ButtonTypography>
+                    </BackButtonTypography>
                 </Button>
             </div>
            
@@ -118,9 +121,9 @@ export default function CreateProject( {host, user} ) {
                         handleCreateProject(host, user.uid, projectName);
                     }
                 }}>
-                    <ButtonTypography>
+                    <CreateButtonTypography>
                         CREATE 
-                    </ButtonTypography>
+                    </CreateButtonTypography>
                 </Button>
             </div>
         </div>

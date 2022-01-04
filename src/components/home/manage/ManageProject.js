@@ -17,6 +17,7 @@ import { withStyles } from '@mui/styles';
 import { handleDeleteProject, handleLeaveProject } from '../../../util/apiclient';
 
 import styles from "./ManageProject.module.css";
+import { style } from "@mui/system";
 
 const Transition = forwardRef(function Transition(
   props, ref
@@ -61,7 +62,10 @@ export default function ManageProject({ host, user, project, members }) {
 
     return (
       <div className={styles.container} >
-          <h1>{project.projectName}</h1>
+
+          <h1 className={styles.projectTitle}>
+            {project.projectName}
+            </h1>
 
           <Pin project={project} />
           <Description host={host} user={user} project={project}/>

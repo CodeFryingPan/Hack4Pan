@@ -13,11 +13,11 @@
 }
 
 .description {
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .link {
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .textFieldContainer {
@@ -41,4 +41,25 @@
     text-align: center;
     padding: 2rem;
     text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+    .description {
+        padding: 0.5rem;
+    }
+    
+    .link {
+        padding: 0.5rem;
+    }
+  
+}
+  
+  @media screen and (min-width: 1200px) {
+    .description {
+        padding: 1rem;
+    }
+    
+    .link {
+        padding: 1rem;
+    }
 }

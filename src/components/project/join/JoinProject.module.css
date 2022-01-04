@@ -9,8 +9,8 @@
 
 .back {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 1rem;
+  top: 1rem;
 }
 
 .backButton {
@@ -64,8 +64,8 @@ text-align: center;
   }
 
   .back {
-    left: 1.5rem;
-    top: 1.5rem;
+    left: 1rem;
+    top: 1rem;
   }
 
 }
@@ -82,8 +82,8 @@ text-align: center;
   }
 
   .back {
-    left: 3rem;
-    top: 3rem;
+    left: 1rem;
+    top: 1rem;
   }
 
 }
@@ -95,7 +95,7 @@ text-align: center;
   }
 
   .back {
-    left: 4rem;
-    top: 4rem;
+    left: 1rem;
+    top: 1rem;
   }
 }
