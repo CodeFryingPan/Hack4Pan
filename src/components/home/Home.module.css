@@ -21,7 +21,10 @@
 }
 
 .signOutButton{
-    margin: 1rem;
     text-decoration: underline;
     text-decoration-color: red;
+}
+
+.signOutButtonContainer {
+    margin: 1rem;
 }

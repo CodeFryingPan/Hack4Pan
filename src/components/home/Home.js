@@ -15,7 +15,8 @@ export default function Home({ host, user, members, project }) {
       root: {
         color: "#E50000",
         fontFamily: '"Press Start 2P", cursive',
-        textDecoration: "underline"
+        textDecoration: "underline",
+        textDecorationColor: "#E50000",
       }
     })(Typography);
 
@@ -26,12 +27,14 @@ export default function Home({ host, user, members, project }) {
              (<ManageProject host={host} user={user} project={project} members={members} />)
             : <Selection></Selection>
             }
-            <Button className={styles.signOutButton} color="error" variant="standard" onClick={() =>  {
-              signOut();
-              Router.push("/");
-            }}>
-              <RedTextTypography>  Sign Out </RedTextTypography>
-            </Button>
+            <div className={styles.signOutButtonContainer}>
+              <Button className={styles.signOutButton} color="error" variant="standard" onClick={() =>  {
+                signOut();
+                Router.push("/");
+              }}>
+                <RedTextTypography>  Sign Out </RedTextTypography>
+              </Button>
+            </div>
         </div>   
     )
 }
