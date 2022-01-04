@@ -52,7 +52,6 @@ const handler = async (req, res) => {
                 console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
                 
                 return res.status(200).send({data: userResult})
-
             } else {
                 return res.status(409).send({data: "You cannot join a team that is already full :(" });
             }

@@ -18,6 +18,7 @@ export const handleCreateProject = async (host, userId, pname) => {
     })
     .catch(function (error) {
         if (error.response) {
+            alert(error.response.data.data);
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -41,6 +42,7 @@ export const handleKickProject = (e, host, userid, project) => {
     })
     .catch(function (error) {
         if (error.response) {
+            alert(error.response.data.data);
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -88,6 +90,7 @@ export const handleEditProject = (e, host, userid, project, description, link) =
       .catch(function (error) {
         alert("Error while editing");  
         if (error.response) {
+            alert(error.response.data.data);
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -136,6 +139,7 @@ export const handleLeaveProject = (e, host, userid, project) => {
       .catch(function (error) {
         alert("Error leaving.");  
         if (error.response) {
+            alert(error.response.data.data);
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);
@@ -159,6 +163,7 @@ export const handleEditUser = (host, userid, tag)  => {
         })
         .catch(function (error) {
             if (error.response) {
+                alert(error.response.data.data);
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);

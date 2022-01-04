@@ -58,7 +58,7 @@ export default function Home({ host, user, members, project }) {
         textDecoration: "underline",
         textDecorationColor: "#FFFF00",
         fontSize: "16px",
-        padding: "0.5rem"
+        padding: "1rem"
       }
     })(Typography);
 
