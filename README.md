@@ -22,16 +22,17 @@ DONE:
 - Fix Deploy
 - Agree checkbox for terms and services
 - Add Modal for agreee to livestream
+- Hackathon Description + Prizes
+- Mobile Responsive
+- Setup Emoticon Caching
 
 TODO:
+- FIX PADDING ISSUE BACK BUTTON/FAQ
 - Countdown
 - Change error to data:
 - Add Updating Discord Images
-- Hackathon Description + Prizes
-
-Optional:
 - Hide ProjectID (Fully) ?
-- Setup Emoticon Caching (No clue why doesn't work)
+
 
 ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠉⠁⠄⠄⠄⠉⠉⠛⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿
 ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⠄⠄⠄⠄⢀⠄⠄⠄⠄⠉⢻⣿⣿⣿⣿⣿⣿
