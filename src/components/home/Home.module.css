@@ -28,3 +28,14 @@
 .signOutButtonContainer {
     margin: 1rem;
 }
+
+.faqButtonContainer {
+    margin: 1rem;
+}
+
+.dialogContainer {
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    background-color: #0F0E0E;
+}

@@ -4,6 +4,15 @@
     background-color: #0F0E0E;
   }
   
+  .drip {
+    margin: 1rem 0 2rem 0;
+  }
+    
+  .blink {
+    -webkit-animation: 1s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+    animation: 1s linear infinite condemned_blink_effect;
+  }
+  
   .main {
     min-height: 100vh;
     padding: 4rem 0;
@@ -40,82 +49,24 @@
     justify-content: center;
     text-align: center;
   }
-  
-  /* GRID WE DONT USE */
-  
-  
-  .logo {
-    height: 1em;
-    margin-left: 0.5rem;
-  }
-  
-  /* ACCORDION  */
-  
-  
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-  }
-  
-  .accordionDescription {
-    padding: 1.5rem;
-    text-align: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, .1);
-  }
-  
-  .accordions {
-    display: flex;
-    margin: 2rem 0;
-    max-width: 1000px;
+
+  .dialogContainer {
     border-style: solid;
     border-color: white;
-    flex-direction: column;
+    border-width: 3px;
     background-color: #0F0E0E;
   }
   
-  .accordionSeparator {
-    border-color: white;
-    width: 100%;
-    border-style: dashed;
-    background-color: #0F0E0E;
+
+  .discordClickAbove {
+    margin: 1rem;
   }
-  
-  .accordionTitle {
-    text-align: center !important;
-    justify-content: center;
-    background-color: #0F0E0E;
-  }
-  
-  .MuiAccordionSummary-content {
-    justify-content: center;
-    background-color: #0F0E0E;
-  }
-  
-  .accordionExpanded {
-    margin: 0 auto;
+
+  .info {
+    margin: 2rem 0;
   }
   
   /* CSS */
-  
-  
-  .collapsible {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-  }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-  .active, .collapsible:hover {
-    background-color: #ccc;
-  }
   
   
   .footer {
@@ -135,11 +86,6 @@
   }
   
   .cursor { cursor: pointer; }
-  
-  .blink {
-    -webkit-animation: 1s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
-    animation: 1s linear infinite condemned_blink_effect;
-  }
   
   /* for Safari 4.0 - 8.0 */
   @-webkit-keyframes condemned_blink_effect {
@@ -165,15 +111,3 @@
       visibility: visible;
     }
   }
-
-
-
-  /* AGREEEMENT/DIALOG CSS */
-
-
-.dialogContainer {
-  border-style: solid;
-  border-color: white;
-  border-width: 3px;
-  background-color: #0F0E0E;
-}
