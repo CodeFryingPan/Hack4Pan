@@ -19,13 +19,13 @@ DONE:
 - New Discord Bot => Give Role 
 - Added Updated Discord Tags
 - Deploy
-
-TODO:
 - Fix Deploy
 - Agree checkbox for terms and services
+- Add Modal for agreee to livestream
+
+TODO:
 - Countdown
 - Change error to data:
-- Add Modal for agreee to livestream
 - Add Updating Discord Images
 - Hackathon Description + Prizes
 
