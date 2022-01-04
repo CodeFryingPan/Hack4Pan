@@ -35,11 +35,11 @@ const handler = async (req, res) => {
             }
 
             // SEARCH USERS
-            const queryUsers = { project: project._uid}
+            const queryUsers = { project: project._id}
             const usersCollection = await client.db("Panathon").collection("Users")
             
-            const count = usersCollection.find(queryUsers).count();
-
+            const count = await usersCollection.find(queryUsers).count();
+            
             if(count < 4) {
                 
                 // find user and update
