@@ -1,12 +1,11 @@
-import * as React from 'react';
-
+import { useState, forwardRef } from "react";
 import Button from '@mui/material/Button';
-import axios from 'axios';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Slide from "@mui/material/Slide";
 
 import Pin from './pin';
 import Dashboard from "./dashboard";
@@ -19,8 +18,15 @@ import { handleDeleteProject, handleLeaveProject } from '../../../util/apiclient
 
 import styles from "./ManageProject.module.css";
 
+const Transition = forwardRef(function Transition(
+  props, ref
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
+
 export default function ManageProject({ host, user, project, members }) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     
     const WhiteTextTypography = withStyles({
         root: {
@@ -78,6 +84,7 @@ export default function ManageProject({ host, user, project, members }) {
           </div>
       <Dialog
         open={open}
+        TransitionComponent={Transition}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"

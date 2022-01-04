@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
 import { Typography } from "@mui/material";
 import { withStyles, makeStyles } from "@mui/styles";
@@ -19,9 +19,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import { TransitionProps } from '@mui/material/transitions';
-
-import { useStatem, forwardRef } from 'react';
 
 import Info from "../shared/info";
 
@@ -44,13 +41,6 @@ export default function Home({ host, user, members, project }) {
   const handleClose = () => {
     setOpen(false);
   };
-
-  const WhiteTextTypography = withStyles({
-    root: {
-      color: "#FFFFFF",
-      fontFamily: '"Press Start 2P", cursive',
-    }
-  })(Typography);
 
     const RedTextTypography = withStyles({
       root: {
