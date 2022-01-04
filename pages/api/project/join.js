@@ -34,21 +34,32 @@ const handler = async (req, res) => {
                 return res.status(404).send({data: "Pin does not exist"})
             }
 
-            // find user and update
-            const userid  = body.uid;
-            const options = { upsert: false };
-            const filter = {uid: userid}
-            const updateDoc = { $set: { project: project._id}};
-
+            // SEARCH USERS
+            const queryUsers = { project: project._uid}
             const usersCollection = await client.db("Panathon").collection("Users")
-            const userResult = await usersCollection.updateOne(filter, updateDoc, options)
-            console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
             
-            return res.status(200).send({data: userResult})
+            const count = usersCollection.find(queryUsers).count();
+
+            if(count < 4) {
+                
+                // find user and update
+                const userid  = body.uid;
+                const options = { upsert: false };
+                const filter = {uid: userid}
+                const updateDoc = { $set: { project: project._id}};
+
+                const userResult = await usersCollection.updateOne(filter, updateDoc, options)
+                console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
+                
+                return res.status(200).send({data: userResult})
+
+            } else {
+                return res.status(409).send({data: "You cannot join a team that is already full :(" });
+            }
         } 
     } else {
       // Not Signed in
-      return res.status(401).send({"Error" : "Failed to get user session"})
+      return res.status(401).send({data : "Failed to get user session"})
     }
 }
 

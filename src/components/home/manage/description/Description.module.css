@@ -21,7 +21,7 @@
 }
 
 .descriptionTextField{
-    display: flex;
+    display: "flex";
     margin: 2rem;
 }
 

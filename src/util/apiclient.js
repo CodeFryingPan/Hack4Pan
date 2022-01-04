@@ -63,6 +63,7 @@ export const handleJoinProject = async (host, userid, pin) => {
     })
     .catch(function (error) {
         if (error.response) {
+            alert(error.response.data.data);
             console.log(error.response.data);
             console.log(error.response.status);
             console.log(error.response.headers);

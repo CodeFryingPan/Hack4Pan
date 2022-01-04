@@ -22,6 +22,8 @@ DONE:
 
 TODO:
 - Fix Deploy
+- Change error to data:
+- Add Modal for agreee to livestream
 - Add Updating Discord Images
 - Hackathon Description + Prizes
 

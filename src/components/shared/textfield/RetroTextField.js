@@ -3,6 +3,7 @@ import withStyles from "@mui/styles/withStyles";
 
 const RetroTextField = withStyles({
     root: {
+        display: "flex",
         '& .MuiInputBase-root': {
             color: 'white',
             fontFamily: '"Press Start 2P", cursive',

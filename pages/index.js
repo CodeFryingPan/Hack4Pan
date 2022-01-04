@@ -126,14 +126,18 @@ export default function Landing({ providers }) {
               <AccordionDetails>
                 
                 <WhiteTextTypography>
-                Hack The Pan is a hackathon. Everyone can submit their projects and liveshare it to an audience on Pan's livestream. The projects will be judged by Pan and maybe other tech YouTubers.
+                Hack The Pan is a hackathon. Everyone can submit their projects and liveshare it 
+                to an audience on Pan's livestream. The projects will be judged by Pan 
+                and maybe other tech YouTubers.
                 </WhiteTextTypography>
                 
               </AccordionDetails>
             </Accordion>
+
             <div className={styles.accordionSeparator}>
               <WhiteTextTypography> </WhiteTextTypography>
             </div>
+
             <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
               <AccordionSummary
                 classes={{ content: classes.content }}
@@ -145,7 +149,69 @@ export default function Landing({ providers }) {
               </AccordionSummary>
               <AccordionDetails>
                 <WhiteTextTypography>
-                None yet Clueless
+                Money + Gift Cards for now, specifics will be decided later monkas
+                </WhiteTextTypography>
+              </AccordionDetails>
+            </Accordion>
+
+            <div className={styles.accordionSeparator}>
+              <WhiteTextTypography> </WhiteTextTypography>
+            </div>
+
+            <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+              <AccordionSummary
+                classes={{ content: classes.content }}
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <WhiteTextTypography>  Can I be in a team? </WhiteTextTypography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <WhiteTextTypography>
+                Yes! The teams can be comprised of 1-4 people. You can totally participate alone, but if you want to find teammates you can ask around in our discord :)
+                </WhiteTextTypography>
+              </AccordionDetails>
+            </Accordion>
+            <div className={styles.accordionSeparator}>
+              <WhiteTextTypography> </WhiteTextTypography>
+            </div>
+
+            <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+              <AccordionSummary
+                classes={{ content: classes.content }}
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <WhiteTextTypography>  Will I be recorded? How will I present? </WhiteTextTypography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <WhiteTextTypography>
+                You won't have to share your camera, but you do need a microphone.
+                 By participating, you agree to be livestreamed and recorded on video (Twitch/YouTube). 
+                 The presentations will be done via
+                 discord and you'll have to share your screen and talk to us.
+                </WhiteTextTypography>
+              </AccordionDetails>
+            </Accordion>
+
+            <div className={styles.accordionSeparator}>
+              <WhiteTextTypography> </WhiteTextTypography>
+            </div>
+
+            <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+              <AccordionSummary
+                classes={{ content: classes.content }}
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <WhiteTextTypography>  What is the timeline for Hack 4 Pan </WhiteTextTypography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <WhiteTextTypography>
+                Hack 4 Pan will occur during a weekend and everyone will have 72 hours.
                 </WhiteTextTypography>
               </AccordionDetails>
             </Accordion>
