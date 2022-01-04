@@ -6,13 +6,14 @@
     padding: 0 18px;
     display: none;
     overflow: hidden;
+    background-color: #0F0E0E;
   }
   
   .accordionDescription {
     padding: 1.5rem;
     text-align: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, .1);
+    background-color: #0F0E0E;
   }
   
   .accordions {

@@ -30,7 +30,7 @@ export default function Info() {
     
     return (
         <div className={styles.accordions}>
-        <Accordion className={styles.accordionDescription} disableGutters >
+        <Accordion className={styles.accordionDescription} sx={{backgroundColor: "#0F0E0E"}}  disableGutters >
           <AccordionSummary
             classes={{ content: classes.content }}
             expandIcon={<ExpandMoreIcon />}
@@ -54,11 +54,11 @@ export default function Info() {
           </AccordionDetails>
         </Accordion>
 
-        <div className={styles.accordionSeparator}>
+        <div className={styles.accordionSeparator} sx={{backgroundColor: "#0F0E0E"}} >
           <WhiteTextTypography> </WhiteTextTypography>
         </div>
 
-        <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+        <Accordion className={styles.accordionDescription} sx={{backgroundColor: "#0F0E0E"}}  disableGutters elevation={0}>
           <AccordionSummary
             classes={{ content: classes.content }}
             expandIcon={<ExpandMoreIcon />}
@@ -78,7 +78,7 @@ export default function Info() {
           <WhiteTextTypography> </WhiteTextTypography>
         </div>
 
-        <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+        <Accordion className={styles.accordionDescription} sx={{backgroundColor: "#0F0E0E"}}  disableGutters elevation={0}>
           <AccordionSummary
             classes={{ content: classes.content }}
             expandIcon={<ExpandMoreIcon />}
@@ -97,7 +97,7 @@ export default function Info() {
           <WhiteTextTypography> </WhiteTextTypography>
         </div>
 
-        <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+        <Accordion className={styles.accordionDescription} sx={{backgroundColor: "#0F0E0E"}}  disableGutters elevation={0}>
           <AccordionSummary
             classes={{ content: classes.content }}
             expandIcon={<ExpandMoreIcon />}
@@ -120,7 +120,7 @@ export default function Info() {
           <WhiteTextTypography> </WhiteTextTypography>
         </div>
 
-        <Accordion className={styles.accordionDescription} disableGutters elevation={0}>
+        <Accordion className={styles.accordionDescription} sx={{backgroundColor: "#0F0E0E"}} disableGutters elevation={0}>
           <AccordionSummary
             classes={{ content: classes.content }}
             expandIcon={<ExpandMoreIcon />}
