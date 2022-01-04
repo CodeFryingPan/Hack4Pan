@@ -60,20 +60,22 @@ export default function ManageProject({ host, user, project, members }) {
           <Pin project={project} />
           <Description host={host} user={user} project={project}/>
           <Dashboard host={host} members={members} user={user} project={project}/>
-        { (project.leader == user.uid)? (
-          <Button disableRipple className={styles.projectActionButton} variant="standard" onClick={handleClickOpen}>
-            <ButtonTypography>
-              DELETE PROJECT
-            </ButtonTypography>
-          </Button>
-          ): (        
-            <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user.uid, project)}>
+          <div className={styles.projectActionButton}>
+            { (project.leader == user.uid)? (
+            <Button disableRipple  variant="standard" onClick={handleClickOpen}>
               <ButtonTypography>
-                  LEAVE PROJECT
+                DELETE PROJECT
               </ButtonTypography>
             </Button>
-          )
-        }
+            ): (        
+              <Button variant="standard" onClick={(e) => handleLeaveProject(e, host, user.uid, project)}>
+                <ButtonTypography>
+                    LEAVE PROJECT
+                </ButtonTypography>
+              </Button>
+            )
+          }
+          </div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -98,17 +100,17 @@ export default function ManageProject({ host, user, project, members }) {
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>
-              <WhiteTextTypography>
+              <ButtonTypography>
                 No 
-              </WhiteTextTypography>
+              </ButtonTypography>
             </Button>
             <Button onClick={() => {
               handleDeleteProject(host, user.uid, project);
               handleClose();
             }} autoFocus>
-              <WhiteTextTypography>
+              <ButtonTypography>
                 Yes
-              </WhiteTextTypography>
+              </ButtonTypography>
             </Button>
           </DialogActions>
         </div>
