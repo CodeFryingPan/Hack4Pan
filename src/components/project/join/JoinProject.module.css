@@ -11,12 +11,13 @@
   position: absolute;
   left: 1rem;
   top: 1rem;
+  padding: 1rem;
 }
 
 .backButton {
   text-decoration: underline;
   text-decoration-color: #28FE14;
-  padding: 1rem;
+  
 }
 
 .buttonContainer {

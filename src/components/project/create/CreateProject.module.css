@@ -8,13 +8,14 @@
 }
 
 .backButton {
-  padding: 1rem;
+  
 }
 
 .back {
   position: absolute;
   left: 1rem;
   top: 1rem;
+  padding: 1rem;
 }
 
   

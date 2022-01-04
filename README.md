@@ -25,9 +25,10 @@ DONE:
 - Hackathon Description + Prizes
 - Mobile Responsive
 - Setup Emoticon Caching
+- FIX PADDING ISSUE BACK BUTTON/FAQ
 
 TODO:
-- FIX PADDING ISSUE BACK BUTTON/FAQ
+
 - Countdown
 - Change error to data:
 - Add Updating Discord Images
