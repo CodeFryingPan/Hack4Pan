@@ -144,22 +144,24 @@ export const handleLeaveProject = (e, host, userid, project) => {
 }
 
 
-export const handleEditUser = (host, userid, tag)  => {
+export const handleEditUser = (host, userid, tag, image)  => {
 
     const data = {
-        "uid": userid,
-        "tag": tag
+        uid: userid,
+        tag: tag,
+        image: image
       }
       
-      const url = host == "localhost:3000" ? `http://${host}/api/user/` : `https://${host}/api/user`;
+      const url = host == "localhost:3000" ? `http://${host}/api/user` : `https://${host}/api/user`;
 
       axios.put(url, data)
             .then(function (response) {
-            // Do Nothing
         })
         .catch(function (error) {
+            
             if (error.response) {
-                alert(error.response.data.message);
+                // alert(error.response.data.message);
+                console.log(error.response.message);
                 console.log(error.response.data);
                 console.log(error.response.status);
                 console.log(error.response.headers);

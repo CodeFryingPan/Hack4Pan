@@ -30,7 +30,18 @@ export default NextAuth({
                 const usersCollection = await client.db("Panathon").collection("Users")
                 const userExists = await usersCollection.findOne({"uid": user.id})
                 
-                if (!userExists) {                  
+                if (userExists) {                  
+                    const userFilter = {uid: profile.id};
+                    const updateUser = { $set:
+                        {
+                            tag: profile.username + "#" + profile.discriminator,
+                            image: profile.image_url
+                        }
+                    };
+                    const userUpdateResult = await client.db("Panathon").collection("Users").updateOne(userFilter, updateUser);
+                    
+                    console.log(`User document updated: ${userUpdateResult.modifiedCount}`);
+                } else {
                     const userDoc = {
                         uid: profile.id,
                         tag: profile.username + "#" + profile.discriminator,

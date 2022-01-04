@@ -9,7 +9,7 @@ import { handleEditUser } from "../../src/util/apiclient";
 export async function getServerSideProps(context) {
 
     const session = await getSession(context)
-  
+
     if (!session) {
       return {
         redirect: {
@@ -38,12 +38,13 @@ export async function getServerSideProps(context) {
     const discordUser = await getDiscordUser(user.uid, SERVER_ID);
 
     if(discordUser) {
+      const image = `https://cdn.discordapp.com/avatars/${user.uid}/${discordUser.avatar}.png`
       const tag = discordUser.username+"#"+discordUser.discriminator;
-     
       return {
         props: { 
             host: host,
             discordTag: tag,
+            discordImage: image,
             user: JSON.parse(JSON.stringify(user)), 
             members: JSON.parse(JSON.stringify(members)),
             project: JSON.parse(JSON.stringify(project)),
@@ -62,11 +63,25 @@ export async function getServerSideProps(context) {
 }
 
 
-export default function UserHomePage({ host, user, members, project, discordTag }) {
+export default function UserHomePage({ host, user, members, project, discordTag, discordImage}) {
 
   // If the discord tag is not the same in user/home then update it for other users!
-  if(user.tag !== discordTag) {
-      handleEditUser(user.uid, discordTag);
+  if(user.tag !== discordTag || user.image !== discordImage) {
+    // Change for user on the frontend with new updated look
+    user.tag = discordTag;    
+    user.image = discordImage;
+    if(user.project) {
+      members = members.map((member) => {
+        if(member.uid == user.uid) {
+            member.tag = discordTag
+            member.image = discordImage
+        } 
+        return member
+      })
+    }
+    
+    // Edit on the backend for other members
+    handleEditUser(host, user.uid, discordTag, discordImage);
   }
 
   return (
@@ -76,7 +91,7 @@ export default function UserHomePage({ host, user, members, project, discordTag 
           <meta name="description" content="Hack4Pan hackathon" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Home host={host} user={user} members={members} project={project} />
+        <Home host={host} user={user} members={members} project={project}/>
       </div>
       
     )

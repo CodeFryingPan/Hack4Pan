@@ -53,13 +53,13 @@ export async function  getDiscordUser(userID, serverID) {
         try {
             const response = await axios.get(uri, config)
 
-            console.log(response.data);
+            console.log(`DISCORD DATA ${JSON.stringify(response.data)}`);
 
             const data = response.data.user;
 
             return data;
         } catch(e) {
-            console.log(e);
+            console.log("DISCORD ERROR: " + e);
             return null;
         }
 }

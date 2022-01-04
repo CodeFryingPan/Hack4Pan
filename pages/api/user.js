@@ -6,7 +6,7 @@ const handler = async (req, res) => {
     var ObjectId = require('mongodb').ObjectId
 
     const session = await getSession({ req })
-    
+
     if (session) {    
         if (req.method  === 'GET') {
             const query = req.query;
@@ -27,7 +27,7 @@ const handler = async (req, res) => {
         } else if(req.method === "PUT") {
             const body = req.body;
 
-            if (!body.hasOwnProperty("tag") || !body.hasOwnProperty("uid"))  {
+            if (!body.hasOwnProperty("tag") || !body.hasOwnProperty("uid") || !body.hasOwnProperty("image"))  {
                 return res.status(422).send({message: "Mising required parameter"})
             }
 
@@ -40,7 +40,7 @@ const handler = async (req, res) => {
             
             if (user) {
                 const userFilter = {uid: body.uid};
-                const updateUser = { $set: { tag: body.tag}};
+                const updateUser = { $set: { tag: body.tag, image: body.image}};
                 const userUpdateResult = await client.db("Panathon").collection("Users").updateOne(userFilter, updateUser);
                 
                 return res.status(200).send({data: userUpdateResult});

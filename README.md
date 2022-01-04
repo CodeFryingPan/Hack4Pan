@@ -47,9 +47,9 @@ Open [http://localhost:3000](http://localhost:3000) and you'll be able to see th
 - Mobile Responsive
 - Setup Emoticon Caching
 - FIX PADDING ISSUE BACK BUTTON/FAQ
+- Change error to message: for alerting purposes
 
 ## TODO:
-    - Change error to message: for alerting purposes
     - Countdown (?)
     - Add Updating Discord Images
     - Hide ProjectID (Fully) ?

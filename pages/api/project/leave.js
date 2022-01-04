@@ -26,6 +26,7 @@ const handler = async (req, res) => {
 
             const usersCollection = await client.db("Panathon").collection("Users");
             const userResult = await usersCollection.update(filter, updateDoc)
+            
             console.log(userResult);
             console.log(`A document was updated with the _id: ${userResult.modifiedCount}`);
             
