@@ -39,15 +39,15 @@ export default function Info() {
           >
             <div>
               <WhiteTextTypography>
-                HOW TO SUBMIT?
+                How do I apply and submit?
               </WhiteTextTypography>
             </div>
           </AccordionSummary>
           <AccordionDetails>
             
             <WhiteTextTypography>
-            Hack4Pan is a hackathon. Everyone can submit their projects and share it 
-            to an audience on Pan's livestream. The projects will be judged by Pan, SECRET, and SECRET.
+            Just apply using the apply with Discord button and then create/join a Project. Once you have created/joined a project, you're ready! (More on submission guidelines will come!) <br/><br/>
+            Everyone can submit their projects and share it to an audience on Pan's livestream. The projects will be judged by Pan, SECRET, and SECRET.
             </WhiteTextTypography>
             
           </AccordionDetails>
@@ -68,7 +68,7 @@ export default function Info() {
           </AccordionSummary>
           <AccordionDetails>
             <WhiteTextTypography>
-                Over 1500$ in Prizes: <br/>
+                Over 1200$ in Prizes: <br/>
                 - 1st Place 500$ <br/>
                 - 2nd 200$ <br/>
                 - 3rd 150$ <br/>
@@ -147,7 +147,7 @@ export default function Info() {
           <AccordionDetails>
             <WhiteTextTypography>
             Hack4Pan will be from Friday, January 21st at 12 pm to Sunday January 23rd at 6:00 pm EST.
-            Presentations will be done on Sunday after submissins are over at 12:00 pm. More info on submissions guidelines and judging criteria will be announced soon. 
+            Presentations will be done on Sunday after submissions are over at 12:00 pm. More info on submissions guidelines and judging criteria will be announced soon. 
             </WhiteTextTypography>
           </AccordionDetails>
         </Accordion>
