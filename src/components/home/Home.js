@@ -5,8 +5,11 @@ import { Typography } from "@mui/material";
 import { withStyles, makeStyles } from "@mui/styles";
 import Button from '@mui/material/Button';
 import Router from "next/router";
+import Link from "next/link";
+
 import Selection from "./selection";
 import ManageProject from "./manage";
+
 
 //for the full page dialog
 import Dialog from '@mui/material/Dialog';
@@ -23,6 +26,7 @@ import Slide from '@mui/material/Slide';
 import Info from "../shared/info";
 
 import styles from "./Home.module.css"
+
 
 
 const Transition = forwardRef(function Transition(
@@ -72,13 +76,21 @@ export default function Home({ host, user, members, project }) {
     return(
         <div className={styles.container}>
             <div className={styles.faqButtonContainer}>
+              
               <div className={styles.faqButton}>
                 <Button color="error" variant="standard" onClick={() =>  {
                   handleClickOpen()
-                }}>
+                }} disableRipple>
                   <ButtonTypography> FAQ </ButtonTypography>
                 </Button>
+                <Button color="error" variant="standard" disableRipple>
+                  <a href="https://discord.gg/azX3Qqrzv2" target="_blank">
+                    <ButtonTypography> DISCORD </ButtonTypography>
+                  </a>
+                </Button>
               </div>
+              
+             
               <Dialog                
                 open={open}
                 onClose={handleClose}

@@ -37,8 +37,7 @@ export default function Description({ host, user, project }) {
           <div className={styles.description}>
                 <WhiteTextTypography component="h4">
                     Project Description
-                </WhiteTextTypography>
-                
+                </WhiteTextTypography>                
                 
                 <div className={styles.textFieldContainer}>
                     <RetroTextField

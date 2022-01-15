@@ -16,6 +16,12 @@
     text-decoration: underline;
 }
 
+.guidelineButton {
+    margin: 2rem 0 0 0;
+    text-decoration: underline;
+}
+
+
 .dialogContainer {
     border-style: solid;
     border-color: white;

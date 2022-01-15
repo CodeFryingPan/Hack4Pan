@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import { withStyles , makeStyles} from '@mui/styles'
 
-import styles from "./Info.module.css"
+import styles from "./Guideline.module.css"
 
 
 //  React
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   }
 });  
 
-export default function Info() {
+export default function Guideline() {
     const WhiteTextTypography = withStyles({
         root: {
         color: "#FFFFFF",
@@ -47,7 +47,7 @@ export default function Info() {
             
             <WhiteTextTypography>
             Hack4Pan is a hackathon. Everyone can submit their projects and share it 
-            to an audience on Pan's livestream. The projects will be judged by Pan, SECRET, and SECRET.
+            to an audience on Pan's livestream. The projects will be judged by 
             </WhiteTextTypography>
             
           </AccordionDetails>
@@ -68,24 +68,14 @@ export default function Info() {
           </AccordionSummary>
           <AccordionDetails>
             <WhiteTextTypography>
-                Over 1500$ in Prizes: <br/>
-                - 1st Place 800$ <br/>
-                - 2nd 400$ <br/>
-                - 3rd 200$ <br/>
-                - 4th 100$ <br/>
-                - 5th 40$ <br/>
-                - Top 10 get an exclusive discord role. <br/>
-                - Top 10 get a Hack4Pan NFT <br/>
-                <br/>
-                
-                Category Prizes:  <br/>
-                - Best Social Good Hack: 100$ <br/>
-                - Best Meme Hack: 100$ <br/>
-                - Best Pan Hack: 100$ <br/>
-                <br/>
-                Other Prizes:  <br/>
-                - Best Meme (Posted in #memes): Meme NFT
-
+                Prizes include over:
+                - 1st Place 800$
+                - 2nd 400$
+                - 3rd 200$
+                - 4th 100$
+                - 5th 40$
+                - Top 10 get an exclusive discord role.
+                - Top 10 get a Hack4Pan NFT
             </WhiteTextTypography>
           </AccordionDetails>
         </Accordion>
@@ -147,7 +137,7 @@ export default function Info() {
           <AccordionDetails>
             <WhiteTextTypography>
             Hack4Pan will be from Friday, January 21st at 12 pm to Sunday January 23rd at 6:00 pm EST.
-            Presentations will be done on Sunday after submissins are over at 12:00 pm. More info on submissions guidelines and judging criteria will be announced soon. 
+            Presentations will be done on Sunday after submissins are over at 12:00 pm. More info on submissions guidelines and judgingg criteria will be announced soon. 
             </WhiteTextTypography>
           </AccordionDetails>
         </Accordion>

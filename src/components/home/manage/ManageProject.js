@@ -27,7 +27,7 @@ const Transition = forwardRef(function Transition(
 
 
 export default function ManageProject({ host, user, project, members }) {
-    const [open, setOpen] = useState(false);
+    const [deleteOpen, setDeleteOpen] = useState(false);
     
     const WhiteTextTypography = withStyles({
         root: {
@@ -52,13 +52,14 @@ export default function ManageProject({ host, user, project, members }) {
     }
   })(Typography);  
 
-    const handleClickOpen = () => {
-      setOpen(true);
+    const handleClickDeleteOpen = () => {
+      setDeleteOpen(true);
     };
 
-    const handleClose = () => {
-      setOpen(false);
+    const handleDeleteClose = () => {
+      setDeleteOpen(false);
     };
+
 
     return (
       <div className={styles.container} >
@@ -70,9 +71,22 @@ export default function ManageProject({ host, user, project, members }) {
           <Pin project={project} />
           <Description host={host} user={user} project={project}/>
           <Dashboard host={host} members={members} user={user} project={project}/>
+          {/* <div className={styles.guidelineButton}>
+                <Button 
+                    disableRipple
+                    variant="standard"
+                    className={styles.button}
+                    onClick={(e) => {
+                        
+                    }}>
+                    <ButtonTypography style={{display: 'flex'}}>
+                        GUIDELINE 
+                    </ButtonTypography>
+                </Button>
+          </div> */}
           <div className={styles.projectActionButton}>
             { (project.leader == user.uid)? (
-            <Button disableRipple  variant="standard" onClick={handleClickOpen}>
+            <Button disableRipple  variant="standard" onClick={handleClickDeleteOpen}>
               <ButtonTypography>
                 DELETE PROJECT
               </ButtonTypography>
@@ -87,9 +101,9 @@ export default function ManageProject({ host, user, project, members }) {
           }
           </div>
       <Dialog
-        open={open}
+        open={deleteOpen}
         TransitionComponent={Transition}
-        onClose={handleClose}
+        onClose={handleDeleteClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -110,14 +124,14 @@ export default function ManageProject({ host, user, project, members }) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>
+            <Button onClick={handleDeleteClose}>
               <ButtonTypography>
                 No 
               </ButtonTypography>
             </Button>
             <Button onClick={() => {
               handleDeleteProject(host, user.uid, project);
-              handleClose();
+              handleDeleteClose();
             }} autoFocus>
               <ButtonTypography>
                 Yes

@@ -1,0 +1,49 @@
+  
+  /* ACCORDION  */
+  
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #0F0E0E;
+  }
+  
+  .accordionDescription {
+    padding: 1.5rem;
+    text-align: center;
+    justify-content: center;
+    background-color: #0F0E0E;
+  }
+  
+  .accordions {
+    display: flex;
+    max-width: 1000px;
+    border-style: solid;
+    border-color: white;
+    flex-direction: column;
+    background-color: #0F0E0E;
+  }
+  
+  .accordionSeparator {
+    border-color: white;
+    width: 100%;
+    border-style: dashed;
+    background-color: #0F0E0E;
+  }
+  
+  .accordionTitle {
+    text-align: center !important;
+    justify-content: center;
+    background-color: #0F0E0E;
+  }
+  
+  .MuiAccordionSummary-content {
+    justify-content: center;
+    background-color: #0F0E0E;
+  }
+  
+  .accordionExpanded {
+    margin: 0 auto;
+  }
+
