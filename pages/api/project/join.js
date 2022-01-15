@@ -17,7 +17,7 @@ const handler = async (req, res) => {
             const body = req.body;
             
             // Check if user id is in body for checking
-            if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("pin"))  {
+            if (!body.hasOwnProperty("uid") || !body.hasOwnProperty("pin"))  {
                 return res.status(422).send({message: "Mising required process"})
             }
 
@@ -55,7 +55,9 @@ const handler = async (req, res) => {
             } else {
                 return res.status(409).send({message: "You cannot join a team that is already full :(" });
             }
-        } 
+        } else {
+            return res.status(405).send({message: "Invalid Method."})
+        }
     } else {
       // Not Signed in
       return res.status(401).send({data : "Failed to get user session"})

@@ -46,9 +46,8 @@ export default function Info() {
           <AccordionDetails>
             
             <WhiteTextTypography>
-            Hack4Pan is a hackathon. Everyone can submit their projects and liveshare it 
-            to an audience on Pan's livestream. The projects will be judged by Pan 
-            and maybe other tech YouTubers.
+            Hack4Pan is a hackathon. Everyone can submit their projects and share it 
+            to an audience on Pan's livestream. The projects will be judged by Pan, Nick White 
             </WhiteTextTypography>
             
           </AccordionDetails>
@@ -89,7 +88,7 @@ export default function Info() {
           </AccordionSummary>
           <AccordionDetails>
             <WhiteTextTypography>
-            Yes! The teams can be comprised of 1-4 people. You can participate alone, but if you want to find teammates you can ask around in our discord :)
+            Yes! The teams can be comprised of 1-4 people. You can participate alone, but if you want to find teammates you can ask around in our discord in the :)
             </WhiteTextTypography>
           </AccordionDetails>
         </Accordion>

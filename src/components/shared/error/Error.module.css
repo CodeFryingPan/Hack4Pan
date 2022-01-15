@@ -1,0 +1,27 @@
+.container {
+    height: 100vh;
+    margin: 0 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+    background-color: #0F0E0E; 
+}
+
+
+.errorMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    text-align: center;
+    
+}
+
+.signOutButton{
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+.signOutButtonContainer {
+    margin: 1rem;
+}

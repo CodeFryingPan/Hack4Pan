@@ -11,10 +11,10 @@ const handler = async (req, res) => {
     if (session) {    
         if (req.method  === 'POST') {
             const body = req.body;
-            
+
             // Check if user id is in body for checking
-            if (!body.hasOwnProperty("leader") && !body.hasOwnProperty("projectName") && !body.hasOwnProperty("projectDescription")
-            && !body.hasOwnProperty("projectLink"))  {
+            if (!body.hasOwnProperty("leader") || !body.hasOwnProperty("projectName") || !body.hasOwnProperty("description")
+            || !body.hasOwnProperty("link") || !body.hasOwnProperty("presentation"))  {
                 return res.status(422).send({message: "Mising required parameter"})
             }
 
@@ -65,7 +65,7 @@ const handler = async (req, res) => {
             const body = req.body;
 
             // Check if user id is in body for checking
-            if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("project") && !body.hasOwnProperty("description") && !body.hasOwnProperty("link"))  {
+            if (!body.hasOwnProperty("uid") || !body.hasOwnProperty("project") || !body.hasOwnProperty("description") || !body.hasOwnProperty("link") || !body.hasOwnProperty("presentation"))  {
                 return res.status(422).send({message: "Mising required parameter"})
             }
             
@@ -99,7 +99,8 @@ const handler = async (req, res) => {
             const updateDoc = { $set: 
                 { 
                     description: body.description, 
-                    link: body.link
+                    link: body.link,
+                    presentation: body.presentation
                 }
             };
 
@@ -117,7 +118,7 @@ const handler = async (req, res) => {
             }
 
             const projectsCollection = client.db("Panathon").collection("Projects");
-            const project = await projectsCollection.findOne({"uid": body.uid});
+            const project = await projectsCollection.findOne({_id: body.uid});
             
             return res.status(200).send({data: project})
 

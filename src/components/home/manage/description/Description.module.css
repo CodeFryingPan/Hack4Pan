@@ -20,22 +20,31 @@
     padding: 1rem 0;
 }
 
+.presentation {
+    padding: 1rem 0;
+}
+
 .textFieldContainer {
-    display: "flex";
     margin: 3rem 2rem 2rem 2rem;
 }
 
 .descriptionTextField{
-    display: "flex";
+    display: flex;
 }
 
 .linkTextField {
     display: flex;
 }
 
+.presentationTextField {
+    display: flex;
+}
+
+
 .buttonContainer {
     text-align: center;
 }
+
 
 .button {
     text-align: center;
@@ -51,7 +60,11 @@
     .link {
         padding: 0.5rem;
     }
-  
+    
+    .presentation {
+        padding: 0.5rem;
+    }
+
 }
   
   @media screen and (min-width: 1200px) {
@@ -60,6 +73,10 @@
     }
     
     .link {
+        padding: 1rem;
+    }
+
+    .presentation {
         padding: 1rem;
     }
 }

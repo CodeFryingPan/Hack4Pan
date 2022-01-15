@@ -12,6 +12,7 @@ import RetroTextField from "../../../shared/textfield/RetroTextField";
 export default function Description({ host, user, project }) { 
     const [description, setDescription] = useState(project.description);
     const [link, setLink] = useState(project.link);
+    const [presentation, setPresentation] = useState(project.presentation)
     const [didEdit, setEdit] = useState(false);
 
     const WhiteTextTypography = withStyles({
@@ -70,6 +71,23 @@ export default function Description({ host, user, project }) {
                     />
                 </div>
             </div>
+            <div className={styles.presentation}>
+                <WhiteTextTypography component="h4">
+                    Project Slides
+                </WhiteTextTypography>
+                <div className={styles.textFieldContainer}>
+                    <RetroTextField
+                        placeholder="Link your slides..."
+                        variant="standard" 
+                        value={presentation}
+                        className={styles.presentationTextField}
+                        onChange={e => {
+                            setEdit(true);
+                            setPresentation(e.target.value);
+                        }}
+                    />
+                </div>
+            </div>
             {
             didEdit  && ( 
                 <div className={styles.buttonContainer}>
@@ -78,7 +96,7 @@ export default function Description({ host, user, project }) {
                         variant="standard"
                         className={styles.button}
                         onClick={(e) => {
-                            handleEditProject(e, host, user.uid, project, description, link)
+                            handleEditProject(e, host, user.uid, project, description, link, presentation)
                             setEdit(false);
                         }}>
                         <ButtonTypography style={{display: 'flex'}}>
@@ -92,6 +110,7 @@ export default function Description({ host, user, project }) {
                     onClick={(e) => {
                         setDescription("")
                         setLink("")
+                        setPresentation("")
                         setEdit(false);
                     }}>
                         <ButtonTypography>

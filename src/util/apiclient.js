@@ -8,6 +8,7 @@ export const handleCreateProject = async (host, userId, pname) => {
         projectName: pname,
         description: "",
         link: "",
+        presentation: ""
     }
 
     const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;
@@ -73,12 +74,13 @@ export const handleJoinProject = async (host, userid, pin) => {
     }); 
 }
 
-export const handleEditProject = (e, host, userid, project, description, link) => {
+export const handleEditProject = (e, host, userid, project, description, link, presentation) => {
     const data = {
         "uid": userid,
         "project": project,
         "description": description,
-        "link": link
+        "link": link, 
+        "presentation": presentation
     }
 
     const url = host == "localhost:3000" ? `http://${host}/api/project` : `https://${host}/api/project`;

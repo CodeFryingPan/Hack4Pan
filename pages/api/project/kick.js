@@ -11,7 +11,7 @@ const handler = async (req, res) => {
             var ObjectId = require('mongodb').ObjectId;
 
             // Check if user and project exists for kicking
-            if (!body.hasOwnProperty("uid") && !body.hasOwnProperty("project")) {
+            if (!body.hasOwnProperty("uid") || !body.hasOwnProperty("project")) {
                 return res.status(422).send({message: "Mising required process"})
             }
 
