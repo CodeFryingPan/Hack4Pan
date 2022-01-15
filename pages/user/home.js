@@ -32,11 +32,14 @@ export async function getServerSideProps(context) {
 
     const user = await usersCollection.findOne({"uid": session.user.id})
 
-    if(user == null) {
+    console.log(user);
+
+    if(user == null || user == undefined) {
       return {
         props: { 
             host: host,
-            user: JSON.parse(JSON.stringify(user)), 
+            user: null, 
+            project: null
         }
       }
     }
@@ -104,6 +107,10 @@ export async function getServerSideProps(context) {
 
 export default function UserHomePage({ host, user, members, project, discordTag}) {
 
+  if ((user == null || (user != null && project == null && user.project != null))) {
+      return <Error />
+  }
+
   return (
       <div>
          <Head>
@@ -112,9 +119,7 @@ export default function UserHomePage({ host, user, members, project, discordTag}
           <link rel="icon" href="/favicon.ico" />
         </Head>
         {
-          (user && (user.project && project) || (user.project == null && project == null))
-          ?  <Home host={host} user={user} members={members} project={project}/>
-          : <Error />
+          <Home host={host} user={user} members={members} project={project}/>
         }
         
       </div>
