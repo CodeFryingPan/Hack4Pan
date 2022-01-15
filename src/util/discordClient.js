@@ -41,6 +41,36 @@ export async function  addUserToServer(access_token, serverID, userID, roleID = 
         }
     }
 
+export async function giveRoleToUser(access_token, userID, serverID, roleID) {
+    if (serverID && userID && roleID) {
+        if (access_token) {
+            const body = {
+                "access_token": access_token,
+            }
+        
+            const config = {
+                headers: {
+                "Authorization" :'Bot ' + process.env.DISCORD_BOT_TOKEN,
+                "Content-Type" : "application/json"
+                }
+            }
+        
+            const role_uri = `https://discord.com/api/v9/guilds/${serverID}/members/${userID}/roles/${roleID}`;
+            axios.put(role_uri, body, config)
+                .then((r) => {
+                    console.log(r.status);
+                })
+                .catch((err) => {
+                    console.log(err.response);
+            })      
+        } else {
+            console.log("FAILED TO GET ACCESS_TOKEN");
+        }
+    } else {
+        console.log("FAILED TO GET SERVERID OR USERID");
+    }
+}
+
 export async function  getDiscordUser(userID, serverID) {
         const config = {
             headers: {

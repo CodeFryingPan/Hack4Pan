@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import DiscordProvider from "next-auth/providers/discord"
 import clientPromise from '../../../src/util/mongodb'
-import { addUserToServer } from "../../../src/util/discordClient";
+import { addUserToServer, giveRoleToUser } from "../../../src/util/discordClient";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -21,7 +21,8 @@ export default NextAuth({
             const ROLE_ID = process.env.ROLE_TO_GIVE;
 
             addUserToServer(account.access_token, SERVER_ID, profile.id, ROLE_ID);
-
+            giveRoleToUser(account.access_token, SERVER_ID, profile.id, ROLE_ID);
+            
             //  Add USER TO DATABASE
             const client = await clientPromise
             await client.connect()
