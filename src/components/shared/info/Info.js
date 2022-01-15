@@ -69,11 +69,11 @@ export default function Info() {
           <AccordionDetails>
             <WhiteTextTypography>
                 Over 1500$ in Prizes: <br/>
-                - 1st Place 800$ <br/>
-                - 2nd 400$ <br/>
-                - 3rd 200$ <br/>
+                - 1st Place 500$ <br/>
+                - 2nd 200$ <br/>
+                - 3rd 150$ <br/>
                 - 4th 100$ <br/>
-                - 5th 40$ <br/>
+                - 5th 50$ <br/>
                 - Top 10 get an exclusive discord role. <br/>
                 - Top 10 get a Hack4Pan NFT <br/>
                 <br/>
