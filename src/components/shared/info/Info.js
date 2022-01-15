@@ -46,7 +46,7 @@ export default function Info() {
           <AccordionDetails>
             
             <WhiteTextTypography>
-            Just apply using the apply with Discord button and then create/join a Project. Once you have created/joined a project, you're ready! (More on submission guidelines will come!) <br/><br/>
+            Just apply using the apply with Discord button and then create/join a Project. Once you have created/joined a project, wait until further submission guidelines! <br/><br/>
             Everyone can submit their projects and share it to an audience on Pan's livestream. The projects will be judged by Pan, SECRET, and SECRET.
             </WhiteTextTypography>
             
