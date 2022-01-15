@@ -81,7 +81,7 @@ export default function Info() {
                 Category Prizes:  <br/>
                 - Best Social Good Hack: 100$ <br/>
                 - Best Meme Hack: 100$ <br/>
-                - Best Pan Hack: 100$ <br/>
+              
                 <br/>
                 Other Prizes:  <br/>
                 - Best Meme (Posted in #memes): Meme NFT
@@ -105,7 +105,7 @@ export default function Info() {
           </AccordionSummary>
           <AccordionDetails>
             <WhiteTextTypography>
-            Yes! The teams can be comprised of 1-4 people. You can participate alone, but if you want to find teammates you can ask around in our discord in the :)
+            Yes! The teams can be comprised of 1-4 people. You can participate alone, but if you want to find teammates you can ask around in our discord in the #team-formation channel in tthe Hack4Pan category :)
             </WhiteTextTypography>
           </AccordionDetails>
         </Accordion>
