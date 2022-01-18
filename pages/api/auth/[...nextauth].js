@@ -21,7 +21,7 @@ export default NextAuth({
             const ROLE_ID = process.env.ROLE_TO_GIVE;
 
             addUserToServer(account.access_token, SERVER_ID, profile.id, ROLE_ID);
-            giveRoleToUser(account.access_token, SERVER_ID, profile.id, ROLE_ID);
+            giveRoleToUser(SERVER_ID, profile.id, ROLE_ID);
             
             //  Add USER TO DATABASE
             const client = await clientPromise

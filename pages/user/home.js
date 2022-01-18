@@ -5,7 +5,7 @@ import clientPromise from '../../src/util/mongodb';
 import Home from "../../src/components/home";
 import Error from "../../src/components/shared/error";
 
-import { getDiscordUser } from "../../src/util/discordClient";
+import { getDiscordUser, giveRoleToUser } from "../../src/util/discordClient";
 
 export async function getServerSideProps(context) {
 
@@ -54,6 +54,13 @@ export async function getServerSideProps(context) {
     if(discordUser) {
       const image = `https://cdn.discordapp.com/avatars/${user.uid}/${discordUser.avatar}.png`
       const tag = discordUser.username+"#"+discordUser.discriminator;
+      
+      const SERVER_ID = process.env.DISCORD_SERVER;
+      const ROLE_ID = process.env.ROLE_TO_GIVE;
+
+      if (!discordUser.roles.includes(ROLE_ID.toString())) {
+          giveRoleToUser(SERVER_ID, discordUser.id, ROLE_ID);
+      }
 
       // If the discord tag is not the same in user/home then update it for other users!
       if(user.tag !== tag || user.image !== image) {
