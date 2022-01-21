@@ -1,0 +1,31 @@
+{
+  "name": "frying4good",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.7.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/material": "^5.2.5",
+    "@mui/styles": "^5.2.3",
+    "axios": "^0.24.0",
+    "discord-oauth2": "github:reboxer/discord-oauth2",
+    "mongodb": "^4.2.2",
+    "next": "12.0.7",
+    "next-auth": "^4.0.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-material-ui-carousel": "^2.3.7-mui5"
+  },
+  "devDependencies": {
+    "eslint": "8.5.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

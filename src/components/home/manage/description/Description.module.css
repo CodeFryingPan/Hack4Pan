@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0F0E0E;
+    
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    border-bottom-width: 0px;
+}
+
+.description {
+    padding: 1rem 0;
+}
+
+.link {
+    padding: 1rem 0;
+}
+
+.presentation {
+    padding: 1rem 0;
+}
+
+.textFieldContainer {
+    margin: 3rem 2rem 2rem 2rem;
+}
+
+.descriptionTextField{
+    display: flex;
+}
+
+.linkTextField {
+    display: flex;
+}
+
+.presentationTextField {
+    display: flex;
+}
+
+
+.buttonContainer {
+    text-align: center;
+    margin: 1rem;
+}
+
+
+.button {
+    text-align: center;
+    padding: 2rem;
+    text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+    .description {
+        padding: 0.5rem;
+    }
+    
+    .link {
+        padding: 0.5rem;
+    }
+    
+    .presentation {
+        padding: 0.5rem;
+    }
+
+}
+  
+  @media screen and (min-width: 1200px) {
+    .description {
+        padding: 1rem;
+    }
+    
+    .link {
+        padding: 1rem;
+    }
+
+    .presentation {
+        padding: 1rem;
+    }
+}

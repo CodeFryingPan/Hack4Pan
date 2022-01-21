@@ -1,0 +1,73 @@
+.container {
+    height: 100vh;
+    margin: 0 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+    background-color: #0F0E0E; 
+}
+
+
+.faqButton {
+    display: inline;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+
+.faqButtonContainer {
+    display: block;
+    height: 5rem;
+}
+
+.dialogContainer {
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+    background-color: #0F0E0E;
+    overflow-y: scroll;
+}
+
+
+.signOutButton{
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+.signOutButtonContainer {
+    margin: 1rem;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .container {
+        margin:  0 2rem;  
+    }
+
+    .faqButtonContainer {
+        height: 4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        margin: 0 3rem;  
+    }
+
+    .faqButtonContainer {
+        height: 3.5rem;
+    }
+}
+
+/*   */
+
+.dialogContainer::-webkit-scrollbar {
+    display:none;
+  }
+  
+.dialogContainer {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+  

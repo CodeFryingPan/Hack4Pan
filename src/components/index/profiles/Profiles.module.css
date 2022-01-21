@@ -1,0 +1,11 @@
+.sizeCarousel {
+    margin: 4rem;
+    width: 30%;
+    height: 30%;
+}
+  
+.imageContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
