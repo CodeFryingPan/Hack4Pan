@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 import withStyles from '@mui/styles/withStyles';
 
-import { handleKickProject } from '../../../../util/apiclient';
+import { handleKickProject, handleChangeLeaderProject } from '../../../../util/apiclient';
 
 import styles from "./Dashboard.module.css";
 
@@ -34,6 +34,16 @@ const Dashboard = ({host, members, user, project}) => {
         }
     })(Typography);
 
+    const ButtonTypography = withStyles({
+        root: {
+            color: "#FFFFFF",
+            fontFamily: '"Press Start 2P", cursive',
+            textDecoration: "underline",
+            textDecorationColor: "#FFFF00",
+        }
+    })(Typography);  
+    
+
     return (
         <div className={styles.container}>
             <div style={{backgroundColor:'#0F0E0E', color: 'white', width: '100%'}}>
@@ -53,6 +63,8 @@ const Dashboard = ({host, members, user, project}) => {
                                 <WhiteTextTypography>
                                 UID
                                 </WhiteTextTypography>
+                            </TableCell>
+                            <TableCell align="right">
                             </TableCell>
                             <TableCell align="right">
                             </TableCell>
@@ -87,6 +99,15 @@ const Dashboard = ({host, members, user, project}) => {
                                     LEADER 
                                 </WhiteTextTypography>)
                             }
+                            </TableCell>
+                            <TableCell align="right">
+                                { (project.leader == user.uid && member.uid != project.leader &&
+                                    <IconButton id={member.uid} onClick={(e) => handleChangeLeaderProject(e, host, member.uid, project)}  variant="contained">
+                                        <ButtonTypography>
+                                            PROMOTE
+                                        </ButtonTypography>
+                                    </IconButton>)
+                                }
                             </TableCell>
                             <TableCell align="right">
                                 { (project.leader == user.uid && member.uid != project.leader &&

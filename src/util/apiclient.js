@@ -172,4 +172,26 @@ export const handleEditUser = (host, userid, tag, image)  => {
 }
 
 
+export const handleChangeLeaderProject = (e, host, userid, project) => {
+    e.preventDefault;
+    
+    const body = {
+      "project": project,
+      "uid": userid
+    }
+    
+    const url = host == "localhost:3000" ? `http://${host}/api/project/changeleader` : `https://${host}/api/project/changeleader`;
 
+    axios.put(url, body)
+    .then(function (response) {
+        Router.push("/user/home");
+    })
+    .catch(function (error) {
+        if (error.response) {
+            alert(error.response.data.message);
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
+    });     
+}

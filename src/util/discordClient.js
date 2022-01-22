@@ -1,10 +1,11 @@
 import axios from "axios";
 
-export async function  addUserToServer(access_token, serverID, userID, roleID) {
+export async function  addUserToServer(access_token, serverID, userID, roleID, defaultRole) {
         if (serverID && userID) {
             if (access_token) {
                 const body = {
                     "access_token": access_token,
+                    "roles": [roleID, defaultRole]
                 }
 
                 const config = {

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useEffect } from "react";
 import { useSession, signIn, signOut, getSession } from "next-auth/react"
 import clientPromise from '../../src/util/mongodb';
 
@@ -57,10 +58,16 @@ export async function getServerSideProps(context) {
       
       const SERVER_ID = process.env.DISCORD_SERVER;
       const ROLE_ID = process.env.ROLE_TO_GIVE;
+      const DEFAULT = process.env.ROLE_DEFAULT;
 
       if (!discordUser.roles.includes(ROLE_ID.toString())) {
           giveRoleToUser(SERVER_ID, discordUser.id, ROLE_ID);
       }
+
+      if (!discordUser.roles.includes(DEFAULT.toString())) {
+          giveRoleToUser(SERVER_ID, discordUser.id, DEFAULT);
+      }
+
 
       // If the discord tag is not the same in user/home then update it for other users!
       if(user.tag !== tag || user.image !== image) {
@@ -117,6 +124,14 @@ export default function UserHomePage({ host, user, members, project, discordTag}
   if ((user == null || (user != null && project == null && user.project != null))) {
       return <Error />
   }
+
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session?.error === "RefreshAccessTokenError") {
+      signIn(); // Force sign in to hopefully resolve error
+    }
+  }, [session]);
 
   return (
       <div>

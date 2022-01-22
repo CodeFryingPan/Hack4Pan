@@ -3,6 +3,51 @@ import DiscordProvider from "next-auth/providers/discord"
 import clientPromise from '../../../src/util/mongodb'
 import { addUserToServer, giveRoleToUser } from "../../../src/util/discordClient";
 
+
+async function refreshAccessToken(token) {
+    console.log(token);
+    try {
+      const url = "https://discord.com/api/v8/oauth2/token"
+            
+        var params = {
+            client_id: process.env.DISCORD_CLIENT_ID,
+            client_secret: process.env.DISCORD_CLIENT_SECRET,
+            grant_type: "refresh_token",
+            refresh_token: token.refreshToken,
+            scope: 'identify email guilds.join' 
+            
+        }
+
+      const response = await fetch(url, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(params),
+        method: "POST",
+      })
+  
+      const refreshedTokens = await response.json()
+
+      if (!response.ok) {
+        throw refreshedTokens
+      }
+
+      return {
+        ...token,
+        accessToken: refreshedTokens.access_token,
+        accessTokenExpires: Date.now() + refreshedTokens.exp * 1000,
+        refreshToken: refreshedTokens.refresh_token ?? token.refreshToken, // Fall back to old refresh token
+      }
+    } catch (error) {
+      console.log(error)
+  
+      return {
+        ...token,
+        error: "RefreshAccessTokenError",
+      }
+    }
+  }
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
@@ -19,8 +64,9 @@ export default NextAuth({
             // ADD USER TO SERVER AND GIVE ROLE
             const SERVER_ID = process.env.DISCORD_SERVER;
             const ROLE_ID = process.env.ROLE_TO_GIVE;
+            const DEFAULT = process.env.ROLE_DEFAULT
 
-            addUserToServer(account.access_token, SERVER_ID, profile.id, ROLE_ID);
+            addUserToServer(account.access_token, SERVER_ID, profile.id, ROLE_ID, DEFAULT);
             giveRoleToUser(SERVER_ID, profile.id, ROLE_ID);
             
             //  Add USER TO DATABASE
@@ -69,10 +115,23 @@ export default NextAuth({
             return session;
         },
         async jwt({ token, user, account, profile, isNewUser }) {
-            if (user) {
-                token.uid = user.id;
+            if(account && user) {
+                token.accessToken = account.access_token
+                token.refreshToken = account.refresh_token
+                token.expiration = account.expires_at * 1000
+
+                token.uid = user.id
+                return token
             }
-            return token;
+
+            // Return previous token if the access token has not expired yet
+            if (Date.now() < token.expiration) {
+                return token
+            }
+
+            // Access token has expired, try to update it
+            return refreshAccessToken(token)
         }
     }
 });
+
